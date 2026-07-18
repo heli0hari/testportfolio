@@ -113,6 +113,8 @@
   var carsGrid = document.getElementById('forgeCars');
   var glyphGrid = document.getElementById('glyphGrid');
   var isTouch = window.matchMedia('(hover: none)').matches;
+  var forgeMedia = [];
+  var forgeIndex = 0;
 
   if (carsGrid || glyphGrid) {
     fetch('forge.json')
@@ -122,6 +124,7 @@
   }
 
   function initForge(data) {
+    forgeMedia = data.cars || [];
     if (carsGrid && data.cars) buildCars(data.cars);
     if (glyphGrid && data.alphabet) buildAlphabet(data.alphabet);
   }
@@ -187,10 +190,10 @@
         // images are their own content — they do NOT open a video
       }
 
-      // only video cells open the lightbox
-      if (cell.dataset.video) {
+      // car cells open the Forge lightbox for either video or image content
+      if ((item.type === 'video' && cell.dataset.video) || (item.type === 'image' && item.image)) {
         cell.addEventListener('click', function () {
-          openForgeLightbox(cell.dataset.video, item.alt || '');
+          openForgeLightbox(item, i);
         });
       } else {
         cell.style.cursor = 'default';
@@ -263,6 +266,7 @@
   /* ---------- Forge lightbox (video player, separate from Chroma) ---------- */
   var flb = document.getElementById('forgeLightbox');
   var flbVideo = flb && document.getElementById('forgeLightboxVideo');
+  var flbImg = flb && document.getElementById('forgeLightboxImg');
   var flbCap = flb && document.getElementById('forgeLightboxCap');
 
   function allCellVideos() {
@@ -271,25 +275,58 @@
     );
   }
 
-  function openForgeLightbox(src, caption) {
+  function openForgeLightbox(item, index) {
     if (!flb) return;
     // pause every background cell video so nothing competes with the lightbox
     // (competing videos are what caused the random pausing, esp. on mobile)
     allCellVideos().forEach(function (v) { v.pause(); });
 
-    flbVideo.src = src;
-    flbVideo.muted = false;          // sound on when explicitly opened
-    flbCap.textContent = caption || '';
+    forgeIndex = typeof index === 'number' ? index : 0;
+    var mediaType = item.type;
+    var src = mediaType === 'image' ? item.image : item.video;
+
+    if (mediaType === 'image') {
+      if (flbImg) {
+        flbImg.src = src;
+        flbImg.alt = item.alt || '';
+        flbImg.style.display = 'block';
+      }
+      if (flbVideo) {
+        flbVideo.pause();
+        flbVideo.removeAttribute('src');
+        flbVideo.style.display = 'none';
+      }
+    } else {
+      if (flbVideo) {
+        flbVideo.style.display = 'block';
+        flbVideo.src = src;
+        flbVideo.muted = false;          // sound on when explicitly opened
+      }
+      if (flbImg) {
+        flbImg.style.display = 'none';
+        flbImg.removeAttribute('src');
+      }
+    }
+
+    flbCap.textContent = item.alt || '';
     flb.classList.add('is-open');
     flb.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
-    playSafe(flbVideo);
+
+    if (mediaType === 'video' && flbVideo) playSafe(flbVideo);
   }
   function closeForgeLightbox() {
     if (!flb) return;
-    flbVideo.pause();
-    flbVideo.removeAttribute('src');
-    flbVideo.load();
+    if (flbVideo) {
+      flbVideo.pause();
+      flbVideo.removeAttribute('src');
+      flbVideo.style.display = 'none';
+      flbVideo.load();
+    }
+    if (flbImg) {
+      flbImg.removeAttribute('src');
+      flbImg.style.display = 'none';
+    }
     flb.classList.remove('is-open');
     flb.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
@@ -298,11 +335,21 @@
       if (v.hasAttribute('data-ambient')) playSafe(v);
     });
   }
+
+  function forgeShowIndex(delta) {
+    if (!forgeMedia || forgeMedia.length === 0) return;
+    forgeIndex = (forgeIndex + delta + forgeMedia.length) % forgeMedia.length;
+    openForgeLightbox(forgeMedia[forgeIndex], forgeIndex);
+  }
   if (flb) {
     document.getElementById('forgeLightboxClose').addEventListener('click', closeForgeLightbox);
+    document.getElementById('forgeLightboxPrev').addEventListener('click', function () { forgeShowIndex(-1); });
+    document.getElementById('forgeLightboxNext').addEventListener('click', function () { forgeShowIndex(1); });
     flb.addEventListener('click', function (e) { if (e.target === flb) closeForgeLightbox(); });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && flb.classList.contains('is-open')) closeForgeLightbox();
+      if (e.key === 'ArrowLeft' && flb.classList.contains('is-open')) forgeShowIndex(-1);
+      if (e.key === 'ArrowRight' && flb.classList.contains('is-open')) forgeShowIndex(1);
     });
   }
 
@@ -347,7 +394,7 @@
 
     /* Build one tile. `idx` is the index into the FULL photos array so the
        lightbox opens the right image regardless of which grid it came from. */
-    function makeTile(p, idx, scope) {
+    function makeTile(p, idx, scope, isFeatured) {
       var tile = document.createElement('div');
       tile.className = 'tile';
       tile.style.setProperty('--hue', (p.hue != null ? p.hue : 240));
@@ -359,22 +406,37 @@
       var r = (seed % 1000) / 1000;
       var ratio = (p.w && p.h) ? (p.w / p.h) : 1;
 
-      /* Size by ORIENTATION for every photo, including featured. Forcing
-         featured to 2x2 made them all the same oversized block and lost the
-         varied rhythm — they read as "selected" by being in this view at all,
-         not by being bigger. */
+      /* Size by ORIENTATION. Featured landing tiles use a structured,
+         repeatable pattern so the grid stays varied but still clean. */
       var cw = 1, ch = 1;
-      if (ratio >= 1.35) {
-        if (r < 0.55) { cw = 2; ch = 1; }            // landscape -> wide
-        else if (r < 0.65) { cw = 2; ch = 2; }       // occasional big
-        else { cw = 1; ch = 1; }
-      } else if (ratio <= 0.72) {
-        if (r < 0.6) { cw = 1; ch = 2; }             // portrait -> tall
-        else if (r < 0.68) { cw = 2; ch = 2; }       // occasional big
-        else { cw = 1; ch = 1; }
+      if (isFeatured) {
+        var featuredPos = Array.isArray(scope) ? scope.indexOf(idx) : -1;
+        var pattern = featuredPos >= 0 ? featuredPos % 8 : -1;
+        if (pattern === 0 || pattern === 4) {
+          if (ratio >= 1.4) { cw = 2; ch = 1; }
+        } else if (pattern === 1 || pattern === 7) {
+          if (ratio <= 0.8) { cw = 1; ch = 2; }
+        } else if (pattern === 2 || pattern === 6) {
+          if (ratio >= 1.35) { cw = 2; ch = 1; }
+          else if (ratio <= 0.72) { cw = 1; ch = 2; }
+        } else if (pattern === 3) {
+          if (ratio > 0.9 && ratio < 1.4) { cw = 2; ch = 2; }
+        } else if (pattern === 5) {
+          if (ratio >= 1.2) { cw = 2; ch = 1; }
+        }
       } else {
-        cw = 1; ch = 1;                              // square-ish
-        if (r < 0.08) { cw = 2; ch = 2; }
+        if (ratio >= 1.35) {
+          if (r < 0.55) { cw = 2; ch = 1; }
+          else if (r < 0.65) { cw = 2; ch = 2; }
+          else { cw = 1; ch = 1; }
+        } else if (ratio <= 0.72) {
+          if (r < 0.6) { cw = 1; ch = 2; }
+          else if (r < 0.68) { cw = 2; ch = 2; }
+          else { cw = 1; ch = 1; }
+        } else {
+          cw = 1; ch = 1;
+          if (r < 0.08) { cw = 2; ch = 2; }
+        }
       }
       tile.style.setProperty('--cw', cw);
       tile.style.setProperty('--ch', ch);
@@ -415,7 +477,7 @@
     var featuredIndices = featured.map(function (p) { return photos.indexOf(p); });
     var fFrag = document.createDocumentFragment();
     featured.forEach(function (p, n) {
-      fFrag.appendChild(makeTile(p, featuredIndices[n], featuredIndices));
+      fFrag.appendChild(makeTile(p, featuredIndices[n], featuredIndices, true));
     });
     chromaField.appendChild(fFrag);
 
@@ -424,7 +486,7 @@
     var archiveField = document.getElementById('chromaArchiveField');
     if (archiveField) {
       var aFrag = document.createDocumentFragment();
-      photos.forEach(function (p, i) { aFrag.appendChild(makeTile(p, i)); });
+      photos.forEach(function (p, i) { aFrag.appendChild(makeTile(p, i, null, false)); });
       archiveField.appendChild(aFrag);
     }
     var archiveTiles = archiveField ? archiveField.querySelectorAll('.tile') : [];
@@ -740,12 +802,15 @@
           break;
         }
 
-        case 'gallery': {
+        case 'gallery':
+        case 'portrait-pair':
+        case 'portrait_pair': {
           node = mk('div', 'cs-pair');
           (v.images || v || []).forEach(function (im) {
             var f = mk('figure', 'cs-figure');
             var i3 = mk('img'); i3.src = im.src || im; i3.alt = im.alt || ''; i3.loading = 'lazy';
             f.appendChild(i3);
+            if (im.caption) f.appendChild(mk('figcaption', null, im.caption));
             node.appendChild(f);
           });
           break;
@@ -945,7 +1010,16 @@
 
         case 'mobile-demo': {
           node = mk('div', 'cs-phone');
-          if (v.video || (v.src && /\.(mp4|webm)$/i.test(v.src))) {
+          var demoUrl = typeof v === 'string' ? v : (v.src || v.url || v.image);
+          if (typeof demoUrl === 'string' && /^https?:\/\//i.test(demoUrl)) {
+            var frame = mk('iframe');
+            frame.src = demoUrl;
+            frame.title = 'Live prototype preview';
+            frame.loading = 'lazy';
+            frame.setAttribute('allowfullscreen', '');
+            frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+            node.appendChild(frame);
+          } else if (v && (v.video || (v.src && /\.(mp4|webm)$/i.test(v.src)))) {
             var mv = mk('video');
             mv.src = v.video || v.src;
             mv.autoplay = true; mv.muted = true; mv.loop = true;
@@ -953,7 +1027,9 @@
             node.appendChild(mv);
           } else {
             var mi = mk('img');
-            mi.src = v.src || v.image; mi.alt = v.alt || ''; mi.loading = 'lazy';
+            mi.src = demoUrl || '';
+            mi.alt = (typeof v === 'object' && v.alt) ? v.alt : 'Mobile demo preview';
+            mi.loading = 'lazy';
             node.appendChild(mi);
           }
           break;

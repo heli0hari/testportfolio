@@ -392,7 +392,7 @@
       "sat": 0.099,
       "peakSat": 1,
       "bw": false,
-      "feature": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1448,7 +1448,7 @@
       "sat": 0.439,
       "peakSat": 1,
       "bw": false,
-      "feature": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "animal",
@@ -1733,7 +1733,7 @@
       "sat": 0.183,
       "peakSat": 0.513,
       "bw": false,
-      "feature": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "nature",
@@ -1954,7 +1954,7 @@
       "sat": 0.132,
       "peakSat": 0.659,
       "bw": false,
-      "feature": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "animal",
@@ -2962,7 +2962,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
-      "feature": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "black & white",
