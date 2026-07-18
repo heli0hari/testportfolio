@@ -11,8 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+
+  <script>
+    /* Stop the browser restoring the previous scroll position on reload. */
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  </script>
 </head>
-<body data-mode="read">
+<body data-mode="look">
+<script>
+  /* Set the mode immediately, before the page renders, so a shared #read link
+     never flashes the Look view first. */
+  (function () {
+    var h = (location.hash || '').replace('#', '').toLowerCase();
+    if (h === 'read') document.body.setAttribute('data-mode', 'read');
+  })();
+</script>
 
   <!-- content wrapper receives the mid-transition blur -->
   <div class="stage" id="stage">
@@ -34,7 +47,7 @@
             <span class="thesis__side">UX &middot; RESEARCH &middot; SYSTEMS</span>
 
             <div class="thesis__main">
-              <p class="thesis__cap thesis__cap--top">imagination meets rigorous research <span class="thesis__arrow">&rarr;</span></p>
+              <p class="thesis__cap thesis__cap--top">research, strategy and digital experiences by a <span class="thesis__arrow">&rarr;</span></p>
 
               <div class="thesis__words">
                 <span class="thesis__word">Analyst.</span>
@@ -42,7 +55,7 @@
                 <span class="thesis__word">Designer.</span>
               </div>
 
-              <p class="thesis__cap thesis__cap--bottom"><span class="thesis__arrow">&rarr;</span> making sense of complexity</p>
+              <p class="thesis__cap thesis__cap--bottom"><span class="thesis__arrow">&rarr;</span> solving complex problems, thoughtfully</p>
             </div>
 
             
@@ -52,7 +65,7 @@
             <span class="thesis__side">3D &middot; MOTION &middot; FILM</span>
 
             <div class="thesis__main">
-              <p class="thesis__cap thesis__cap--top">visionary concepts and visual explorations <span class="thesis__arrow">&rarr;</span></p>
+              <p class="thesis__cap thesis__cap--top">creative concepts and visual explorations by a <span class="thesis__arrow">&rarr;</span></p>
 
               <div class="thesis__words">
                 <span class="thesis__word">Dreamer.</span>
@@ -60,7 +73,7 @@
                 <span class="thesis__word">Storyteller.</span>
               </div>
 
-              <p class="thesis__cap thesis__cap--bottom"><span class="thesis__arrow">&rarr;</span> wild ideas, precisely executed</p>
+              <p class="thesis__cap thesis__cap--bottom"><span class="thesis__arrow">&rarr;</span> executing wild ideas, precisely</p>
             </div>
 
             
@@ -68,21 +81,23 @@
 
         </div>
 
+        <!-- Replace your current .switch div with this -->
         <div class="switch" role="tablist" aria-label="Choose a way through the work">
-          <button class="switch__btn" role="tab" data-mode-btn="read" aria-selected="true">
-            Read
-            <span class="switch__ind" aria-hidden="true"></span>
-          </button>
-          <button class="switch__btn" role="tab" data-mode-btn="look" aria-selected="false">
-            Look
-            <span class="switch__ind" aria-hidden="true"></span>
-          </button>
+          <div class="switch__track">
+            <div class="switch__slider" aria-hidden="true"></div>
+            <button class="switch__btn" role="tab" data-mode-btn="look" aria-selected="true">
+              Look<sup class="switch__sup">01</sup>
+            </button>
+            <button class="switch__btn" role="tab" data-mode-btn="read" aria-selected="false">
+              Read<sup class="switch__sup">02</sup>
+            </button>
+          </div>
           <span class="switch__hint">— two ways through the work</span>
         </div>
 
         <div class="cta">
           <a href="#contact" class="cta__primary">Get in touch</a>
-          <a href="#cv" class="cta__secondary">Download CV</a>
+          <a href="images\Resume\Resume_Harigovind.pdf" class="cta__secondary">Download CV</a>
         </div>
       </div>
 
@@ -161,7 +176,7 @@
         <li class="pcard">
           <a class="pcard__link" href="#artbox" data-project="artbox">
             <div class="plate pcard__plate" style="--phue:280;" role="img" aria-label="ArtBox">
-              <img src="images/Artbox/Artbox_Title.jpg" alt="ArtBox Thumbnail" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <img src="images/Artbox/Artbox.jpg" alt="ArtBox Thumbnail" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             </div>
             <h3 class="pcard__title">ArtBox</h3>
             <p class="pcard__desc">Identity, packaging and unboxing as one designed journey.</p>
@@ -172,7 +187,7 @@
         <li class="pcard">
           <a class="pcard__link" href="#aujus" data-project="aujus">
             <div class="plate pcard__plate" style="--phue:90;" role="img" aria-label="Aujus Case Study">
-              <img src="images/Aujus/Aujus_Card.jpg" alt="Aujus Case Study Title" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <img src="images/Aujus/Aujus.jpg" alt="Aujus Case Study Title" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             </div>
             <h3 class="pcard__title">Aujus</h3>
             <p class="pcard__desc">A wayfinding and service system with a unified visual identity.</p>
@@ -222,17 +237,42 @@
         <p class="chroma__intro">
             A growing collection of photographs documenting people, colour, architecture and everyday moments.
         </p>
-        <div class="chroma__filters" id="chromaFilters" role="group" aria-label="Filter photos by tag">
-        </div>
     </header>
 
     <div class="chroma__field" id="chromaField"></div>
 
-    <div class="chroma__caption">
+    <!-- 1. CAPTION & VIEW ALL BUTTON (Moved ABOVE the video) -->
+    <div class="chroma__caption" style="margin-bottom: 80px;">
         <p id="chromaCaption">Sorted by hue, not by date.</p>
+        <button type="button" class="chroma__viewall" id="chromaViewAll">View all photographs</button>
+    </div>
+
+    <!-- 2. VIDEO SHOWCASE (Moved BELOW the button) -->
+    <div class="chroma__showcase">
+        <div class="eyebrow">Color Grading</div>
+        <video class="cs-video" src="images\chroma\videos\video1.mp4" controls playsinline poster="images\chroma\videos\video1.png" style="aspect-ratio: 16/9; background: var(--plate); object-fit: cover;"></video>
     </div>
 
 </section>
+
+</section>
+
+<!-- ============ CHROMA ARCHIVE OVERLAY ============ -->
+<div class="chroma-archive" id="chromaArchive" aria-hidden="true" role="dialog" aria-modal="true" aria-label="All photographs">
+    <div class="chroma-archive__bar">
+        <div class="chroma-archive__meta">
+            <span class="chroma-archive__title">Chroma — full archive</span>
+            <span class="chroma-archive__count" id="chromaArchiveCount"></span>
+        </div>
+        <button type="button" class="chroma-archive__close" id="chromaArchiveClose" aria-label="Close archive">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+    </div>
+    <div class="chroma-archive__scroll">
+        <div class="chroma__filters" id="chromaFilters" role="group" aria-label="Filter photos by tag"></div>
+        <div class="chroma__field" id="chromaArchiveField"></div>
+    </div>
+</div>
 
   </div>
 
@@ -314,7 +354,7 @@
         <p><a href="mailto:harigovind.ie@gmail.com" class="contact-email">harigovind.ie@gmail.com</a></p>
       </div>
 
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="cs-contact-form">
+      <form action="https://formspree.io/f/xrenqprp" method="POST" class="cs-contact-form">
   <div class="cs-card">
     <input type="text" name="name" placeholder="Your Name" required>
   </div>

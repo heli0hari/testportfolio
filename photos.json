@@ -33,6 +33,7 @@
       "peakSat": 1,
       "bw": false,
       "alt": "",
+      "feature": false,
       "tags": [
         "architecture",
         "sea",
@@ -56,6 +57,7 @@
       "sat": 0.356,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -80,6 +82,7 @@
       "sat": 0.275,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture"
@@ -100,6 +103,7 @@
       "sat": 0.142,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -124,6 +128,7 @@
       "sat": 0.593,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -150,6 +155,7 @@
       "sat": 0.47,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -172,6 +178,7 @@
       "sat": 0.007,
       "peakSat": 0.69,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "black & white",
@@ -199,6 +206,7 @@
       "sat": 0.075,
       "peakSat": 0.623,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -221,6 +229,7 @@
       "sat": 0.616,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -245,6 +254,7 @@
       "sat": 0.156,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "market",
@@ -267,6 +277,7 @@
       "sat": 0.147,
       "peakSat": 0.931,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "interior",
@@ -289,6 +300,7 @@
       "sat": 0.375,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -311,6 +323,7 @@
       "sat": 0.076,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -333,6 +346,7 @@
       "sat": 0.25,
       "peakSat": 0.7,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "sky"
@@ -353,6 +367,7 @@
       "sat": 0.244,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "christmas",
@@ -377,6 +392,7 @@
       "sat": 0.099,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "nature",
@@ -399,6 +415,7 @@
       "sat": 0.28,
       "peakSat": 0.765,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -421,6 +438,7 @@
       "sat": 0.181,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife"
@@ -441,6 +459,7 @@
       "sat": 0.224,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "animal"
@@ -461,6 +480,7 @@
       "sat": 0.081,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -485,6 +505,7 @@
       "sat": 0.609,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -509,6 +530,7 @@
       "sat": 0.1,
       "peakSat": 0.565,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -533,6 +555,7 @@
       "sat": 0.167,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -555,6 +578,7 @@
       "sat": 0.265,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -577,6 +601,7 @@
       "sat": 0.213,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car"
@@ -597,6 +622,7 @@
       "sat": 0.103,
       "peakSat": 0.583,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -621,6 +647,7 @@
       "sat": 0.075,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -645,6 +672,7 @@
       "sat": 0.397,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "people"
@@ -665,6 +693,7 @@
       "sat": 0.066,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -689,6 +718,7 @@
       "sat": 0.239,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -711,6 +741,7 @@
       "sat": 0.103,
       "peakSat": 0.762,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -733,6 +764,7 @@
       "sat": 0.214,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "nightlife",
@@ -755,6 +787,7 @@
       "sat": 0.103,
       "peakSat": 0.869,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -777,6 +810,7 @@
       "sat": 0.139,
       "peakSat": 0.63,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "people",
@@ -799,6 +833,7 @@
       "sat": 0.676,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -823,6 +858,7 @@
       "sat": 0.37,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "people"
@@ -843,6 +879,7 @@
       "sat": 0.357,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -865,6 +902,7 @@
       "sat": 0.064,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -889,6 +927,7 @@
       "sat": 0.067,
       "peakSat": 0.515,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -911,6 +950,7 @@
       "sat": 0.073,
       "peakSat": 0.613,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "nature",
@@ -933,6 +973,7 @@
       "sat": 0.173,
       "peakSat": 0.862,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -959,6 +1000,7 @@
       "sat": 0.073,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -983,6 +1025,7 @@
       "sat": 0.325,
       "peakSat": 0.857,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -1005,6 +1048,7 @@
       "sat": 0.107,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1027,6 +1071,7 @@
       "sat": 0.055,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -1051,6 +1096,7 @@
       "sat": 0.114,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -1073,6 +1119,7 @@
       "sat": 0.035,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "car",
@@ -1095,6 +1142,7 @@
       "sat": 0.257,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -1117,6 +1165,7 @@
       "sat": 0.376,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature"
@@ -1137,6 +1186,7 @@
       "sat": 0.006,
       "peakSat": 0.573,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -1164,6 +1214,7 @@
       "sat": 0.226,
       "peakSat": 0.791,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "animal",
@@ -1190,6 +1241,7 @@
       "sat": 0.366,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature"
@@ -1210,6 +1262,7 @@
       "sat": 0.054,
       "peakSat": 0.487,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "city",
@@ -1234,6 +1287,7 @@
       "sat": 0.511,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature"
@@ -1254,6 +1308,7 @@
       "sat": 0.41,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature"
@@ -1274,6 +1329,7 @@
       "sat": 0.354,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature"
@@ -1294,6 +1350,7 @@
       "sat": 0.214,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "animal",
@@ -1318,6 +1375,7 @@
       "sat": 0.156,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "beach",
@@ -1344,6 +1402,7 @@
       "sat": 0.16,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -1366,6 +1425,7 @@
       "sat": 0.127,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1388,6 +1448,7 @@
       "sat": 0.439,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "animal",
@@ -1410,6 +1471,7 @@
       "sat": 0.138,
       "peakSat": 0.818,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1436,6 +1498,7 @@
       "sat": 0.19,
       "peakSat": 0.981,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature"
@@ -1456,6 +1519,7 @@
       "sat": 0.117,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1478,6 +1542,7 @@
       "sat": 0.091,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -1502,6 +1567,7 @@
       "sat": 0.002,
       "peakSat": 0.777,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "black & white",
@@ -1527,6 +1593,7 @@
       "sat": 0.114,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1551,6 +1618,7 @@
       "sat": 0.217,
       "peakSat": 0.589,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature"
@@ -1571,6 +1639,7 @@
       "sat": 0.185,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -1595,6 +1664,7 @@
       "sat": 0.029,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car"
@@ -1615,6 +1685,7 @@
       "sat": 0.07,
       "peakSat": 0.905,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "people",
@@ -1639,6 +1710,7 @@
       "sat": 0.024,
       "peakSat": 0.86,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1661,6 +1733,7 @@
       "sat": 0.183,
       "peakSat": 0.513,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nature",
@@ -1685,6 +1758,7 @@
       "sat": 0.006,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -1707,6 +1781,7 @@
       "sat": 0.059,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "nature",
@@ -1731,6 +1806,7 @@
       "sat": 0.081,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "people",
@@ -1753,6 +1829,7 @@
       "sat": 0.084,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "beach",
@@ -1779,6 +1856,7 @@
       "sat": 0.077,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "people",
@@ -1803,6 +1881,7 @@
       "sat": 0.061,
       "peakSat": 0.63,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "people",
@@ -1827,6 +1906,7 @@
       "sat": 0.022,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "people",
@@ -1849,6 +1929,7 @@
       "sat": 0.041,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "animal",
@@ -1873,6 +1954,7 @@
       "sat": 0.132,
       "peakSat": 0.659,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "animal",
@@ -1895,6 +1977,7 @@
       "sat": 0.304,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "christmas",
@@ -1919,6 +2002,7 @@
       "sat": 0.167,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "sea",
@@ -1941,6 +2025,7 @@
       "sat": 0.057,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "architecture",
@@ -1969,6 +2054,7 @@
       "sat": 0.008,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -1994,6 +2080,7 @@
       "sat": 0.242,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "people",
@@ -2018,6 +2105,7 @@
       "sat": 0.156,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2044,6 +2132,7 @@
       "sat": 0.043,
       "peakSat": 0.72,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "architecture",
@@ -2070,6 +2159,7 @@
       "sat": 0.052,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -2092,6 +2182,7 @@
       "sat": 0.045,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2118,6 +2209,7 @@
       "sat": 0.781,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "sky"
@@ -2138,6 +2230,7 @@
       "sat": 0.159,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "animal",
@@ -2160,6 +2253,7 @@
       "sat": 0.017,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2186,6 +2280,7 @@
       "sat": 0.405,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "sea",
@@ -2208,6 +2303,7 @@
       "sat": 0.905,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -2230,6 +2326,7 @@
       "sat": 0.072,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -2254,6 +2351,7 @@
       "sat": 0.049,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2278,6 +2376,7 @@
       "sat": 0.24,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "sea",
@@ -2300,6 +2399,7 @@
       "sat": 0.571,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "crowd",
@@ -2326,6 +2426,7 @@
       "sat": 0.044,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2352,6 +2453,7 @@
       "sat": 0.106,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car"
@@ -2372,6 +2474,7 @@
       "sat": 0.145,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "sea",
@@ -2396,6 +2499,7 @@
       "sat": 0.106,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "christmas",
@@ -2420,6 +2524,7 @@
       "sat": 0.165,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -2444,6 +2549,7 @@
       "sat": 0.017,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2468,6 +2574,7 @@
       "sat": 0.407,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -2492,6 +2599,7 @@
       "sat": 0.296,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -2514,6 +2622,7 @@
       "sat": 0.593,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "crowd",
@@ -2538,6 +2647,7 @@
       "sat": 0.23,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -2560,6 +2670,7 @@
       "sat": 0.249,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "nightlife",
@@ -2582,6 +2693,7 @@
       "sat": 0.01,
       "peakSat": 0.726,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2609,6 +2721,7 @@
       "sat": 0.337,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car"
@@ -2629,6 +2742,7 @@
       "sat": 0.072,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "interior",
@@ -2653,6 +2767,7 @@
       "sat": 0.059,
       "peakSat": 1,
       "bw": false,
+      "feature": true,
       "alt": "",
       "tags": [
         "car"
@@ -2673,6 +2788,7 @@
       "sat": 0.269,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car",
@@ -2695,6 +2811,7 @@
       "sat": 0.249,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "christmas",
@@ -2719,6 +2836,7 @@
       "sat": 0.205,
       "peakSat": 1,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "car"
@@ -2739,6 +2857,7 @@
       "sat": 0.241,
       "peakSat": 0.645,
       "bw": false,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2761,6 +2880,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "black & white",
@@ -2786,6 +2906,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "black & white",
@@ -2815,6 +2936,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "black & white",
@@ -2840,6 +2962,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "black & white",
@@ -2867,6 +2990,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "architecture",
@@ -2894,6 +3018,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "beach",
@@ -2923,6 +3048,7 @@
       "sat": 0,
       "peakSat": 0,
       "bw": true,
+      "feature": false,
       "alt": "",
       "tags": [
         "beach",

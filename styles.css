@@ -164,7 +164,7 @@ a:hover { opacity: 0.75; }
 
 .thesis__cap {
   margin: 0;
-  font-size: 12px;
+  font-size: 18px;
   letter-spacing: 0.02em;
   line-height: 1.45;
   color: var(--meta);
@@ -216,49 +216,84 @@ a:hover { opacity: 0.75; }
   .thesis__photo { position: static; width: 72px; height: 90px; aspect-ratio: auto; }
 }
 
-/* mode switch */
-.switch {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-top: 56px;
+.switch__track {
+  position: relative;
+  display: inline-flex;
+  background: var(--ink); 
+  border-radius: 999px;
+  padding: 6px; /* Reduced track thickness from 8px to 6px */
+  transition: background-color var(--dur) var(--ease);
 }
+
+.switch__slider {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc(50% - 6px); /* Matches the new 6px padding */
+  background: var(--ground);
+  border-radius: 999px;
+  transition: transform 400ms var(--ease), background-color var(--dur) var(--ease);
+  z-index: 1;
+}
+
+body[data-mode="look"] .switch__slider { transform: translateX(0); }
+body[data-mode="read"] .switch__slider { transform: translateX(100%); }
+
 .switch__btn {
   all: unset;
+  position: relative;
+  z-index: 2;
   cursor: pointer;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 18px; /* Reduced from 26px */
   font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--ink);
-  opacity: 0.45;
-  padding: 4px 0;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 6px;
-  transition: color 250ms var(--ease), opacity 250ms var(--ease);
+  letter-spacing: -0.02em;
+  padding: 10px 28px; /* Reduced padding from 14px 40px */
+  color: var(--ground); 
+  transition: color 300ms var(--ease);
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
 }
+
+.switch__btn[aria-selected="true"] { color: var(--ink); }
+
 .switch__btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
-  border-radius: 2px;
+  border-radius: 999px;
 }
-.switch__ind {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 250ms var(--ease), background-color var(--dur) var(--ease);
+
+.switch__sup {
+  font-size: 10px; /* Scaled down slightly */
+  font-weight: 600;
+  margin-top: 3px;
+  opacity: 0.9;
 }
-.switch__btn[aria-selected="true"] { color: var(--accent); opacity: 1; }
-.switch__btn[aria-selected="true"] .switch__ind { transform: scaleX(1); }
+
+.switch {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  margin-top: 28px;
+}
+
 .switch__hint {
-  font-size: 13px;
-  color: var(--meta);
-  margin-left: 4px;
-  transition: color var(--dur) var(--ease);
+  font-size: 15px;
+  opacity: 0.6;
+  line-height: 1.3;
+}
+
+@media (max-width: 640px) {
+  /* Mobile switch sizes */
+  .switch__track { padding: 4px; }
+  .switch__slider { top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); }
+  .switch__btn { font-size: 15px; padding: 8px 20px; }
+  .switch__sup { font-size: 9px; margin-top: 1px; }
+  .switch__hint { flex-basis: 100%; font-size: 13px; }
+  .switch { margin-top: 24px; }
 }
 
 /* CTAs */
@@ -540,6 +575,18 @@ body[data-mode="look"] [data-hero-mode="read"] { display: none; }
   flex-wrap: wrap;
   gap: 8px;
 }
+
+/* ---- Chroma Video Showcase ---- */
+.chroma__showcase {
+  max-width: 1200px; 
+  margin: 0 auto 64px; /* Adjusted margin for its new position at the bottom */
+  padding: 0 var(--page-pad);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative; /* Lifts it into the stacking context */
+  z-index: 10;        /* Places it above the photo grid boundaries */
+}
 .chip {
   all: unset;
   cursor: pointer;
@@ -624,6 +671,7 @@ body[data-mode="look"] [data-hero-mode="read"] { display: none; }
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--page-pad);
+  pointer-events: none;
 }
 @media (max-width: 1100px) { .chroma__field { --cols: 4; --row-h: 180px; } }
 @media (max-width: 820px)  {
@@ -1336,8 +1384,6 @@ html:has(body.modal-open) { overflow: hidden; }
    ========================================================= */
 @media (max-width: 720px) {
   .hero__thesis { font-size: clamp(38px, 11vw, 64px); }
-  .switch { flex-wrap: wrap; gap: 20px; }
-  .switch__hint { flex-basis: 100%; margin-left: 0; }
   .cta { flex-wrap: wrap; gap: 20px; }
 
   .project-modal { padding: 0; align-items: flex-end; }
@@ -1835,4 +1881,128 @@ html:has(body.modal-open) { overflow: hidden; }
   margin-top: 8px;
   padding: 14px 32px;
   font-size: 15px;
+}
+/* =========================================================
+   CHROMA — "View all" button + full archive overlay
+   ========================================================= */
+
+.chroma__caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+/* prominent call to action — solid, centred, with an arrow */
+.chroma__viewall {
+  appearance: none;
+  background: var(--ink);
+  color: var(--ground);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 15px 30px;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease),
+              opacity 220ms var(--ease);
+}
+.chroma__viewall::after {
+  content: "→";
+  font-size: 15px;
+  transition: transform 220ms var(--ease);
+}
+.chroma__viewall:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px color-mix(in oklch, var(--ink) 28%, transparent);
+}
+.chroma__viewall:hover::after { transform: translateX(4px); }
+
+/* ---- archive overlay ---- */
+.chroma-archive {
+  position: fixed;
+  inset: 0;
+  height: 100dvh;          /* explicit height so the flex children can size */
+  z-index: 90;
+  display: none;
+  flex-direction: column;
+  background: var(--ground);
+  opacity: 0;
+  transition: opacity 280ms var(--ease);
+}
+.chroma-archive.is-open { display: flex; opacity: 1; }
+
+.chroma-archive__bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: max(16px, env(safe-area-inset-top, 0px)) var(--page-pad) 16px;
+  border-bottom: 1px solid var(--hair);
+  background: var(--ground);
+}
+.chroma-archive__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.chroma-archive__title {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.chroma-archive__count {
+  font-size: 12.5px;
+  color: var(--meta);
+  letter-spacing: 0.02em;
+}
+.chroma-archive__close {
+  flex: 0 0 auto;
+  background: none;
+  border: 1px solid var(--hair);
+  border-radius: 50%;
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 200ms var(--ease), background-color 200ms var(--ease);
+}
+.chroma-archive__close:hover {
+  border-color: var(--ink);
+  background: color-mix(in oklch, var(--ink) 6%, transparent);
+}
+
+.chroma-archive__scroll {
+  flex: 1 1 auto;
+  /* min-height:0 is REQUIRED — a flex item defaults to min-height:auto, which
+     stops it shrinking below its content, so the container grows to fit all
+     126 photos and overflow-y never engages (scroll gets stuck partway). */
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px 0 64px;
+}
+/* the filter chips sit above the archive grid */
+.chroma-archive__scroll .chroma__filters {
+  padding: 0 var(--page-pad);
+  margin-bottom: 22px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 560px) {
+  .chroma__caption { gap: 14px; }
+  .chroma__viewall { width: 100%; text-align: center; }
+  .chroma-archive__bar { padding-left: 18px; padding-right: 18px; }
 }

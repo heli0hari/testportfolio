@@ -11,6 +11,30 @@
   var stage   = document.getElementById('stage');
   var buttons = document.querySelectorAll('[data-mode-btn]');
 
+  /* Always open at the top. Browsers restore the previous scroll position on
+     reload, which drops visitors into the middle of the page. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  /* ---------- Shareable mode URLs ----------
+     Look is the default landing view (harigovind.ie).
+     Read has its own shareable link (harigovind.ie/#read).
+     Toggling REPLACES the URL rather than pushing history, so the back button
+     leaves the site instead of stepping back through view toggles. */
+  var VALID_MODES = ['look', 'read'];
+
+  function modeFromURL() {
+    var h = (location.hash || '').replace('#', '').toLowerCase();
+    return VALID_MODES.indexOf(h) !== -1 ? h : 'look';
+  }
+
+  function syncURL(mode) {
+    var target = (mode === 'look') ? location.pathname + location.search
+                                   : location.pathname + location.search + '#read';
+    if (location.href !== new URL(target, location.origin).href) {
+      history.replaceState(null, '', target);
+    }
+  }
+
   /* read the transition duration from CSS so JS + CSS stay in sync */
   function transitionMs() {
     var raw = getComputedStyle(body).getPropertyValue('--dur').trim(); // e.g. "600ms"
@@ -46,12 +70,38 @@
     }, transitionMs() + 60);
 
     if (mode === 'read' && layoutRail) { layoutRail(); onRailScroll(); }
+
+    syncURL(mode);
   }
 
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       switchTo(btn.dataset.modeBtn);
     });
+  });
+
+  /* ---------- Initial mode from the URL ----------
+     #read opens Read directly (shareable); anything else lands on Look. */
+  (function initMode() {
+    var initial = modeFromURL();
+    var current = body.getAttribute('data-mode');
+
+    if (initial !== current) {
+      // set state without the switch animation on first paint
+      body.setAttribute('data-mode', initial);
+      buttons.forEach(function (btn) {
+        btn.setAttribute('aria-selected', String(btn.dataset.modeBtn === initial));
+      });
+    }
+    syncURL(initial);
+
+    // start at the top regardless of what the browser remembered
+    requestAnimationFrame(function () { window.scrollTo(0, 0); });
+  })();
+
+  /* if someone edits the hash or uses back/forward, follow it */
+  window.addEventListener('hashchange', function () {
+    switchTo(modeFromURL());
   });
 
   /* ---------- Forge: cars gallery + alphabet ----------
@@ -279,58 +329,62 @@
 
     var activeTags = new Set();
 
-    var frag = document.createDocumentFragment();
-    photos.forEach(function (p, i) {
+    /* ---- Featured / archive split ----
+       Photos flagged "feature": true in photos.json are the curated landing
+       set. Everything else lives in the "View all" archive overlay. If nothing
+       is flagged yet, we fall back to a spread across the hue range so the
+       section still looks intentional rather than empty. */
+    var featured = photos.filter(function (p) { return p.feature === true; });
+    var usingFallback = false;
+    if (!featured.length) {
+      usingFallback = true;
+      var want = Math.min(16, photos.length);
+      var step = Math.max(1, Math.floor(photos.length / want));
+      for (var k = 0; k < photos.length && featured.length < want; k += step) {
+        featured.push(photos[k]);
+      }
+    }
+
+    /* Build one tile. `idx` is the index into the FULL photos array so the
+       lightbox opens the right image regardless of which grid it came from. */
+    function makeTile(p, idx, scope) {
       var tile = document.createElement('div');
       tile.className = 'tile';
       tile.style.setProperty('--hue', (p.hue != null ? p.hue : 240));
-      if (p.bw) tile.classList.add('is-bw');       // no hue tint for greyscale
+      if (p.bw) tile.classList.add('is-bw');
 
-      /* Gapless justified grid (like the reference). Each tile spans grid cells
-         based on its orientation so tall/wide/large tiles interlock and dense
-         packing leaves NO holes:
-           portrait  -> 1 col x 2 rows (tall)
-           landscape -> 2 col x 1 row  (wide)
-           square-ish-> 1 x 1
-         A deterministic slice of photos become 2x2 "feature" tiles for rhythm.
-         Seeded from the index so the layout is stable across reloads. */
-      var seed = (i * 2654435761) % 4294967296;
-      var r = (seed % 1000) / 1000;                 // 0..1, stable per photo
+      /* Gapless justified grid: tiles span extra cells by orientation so
+         tall/wide/large tiles interlock and dense packing leaves no holes. */
+      var seed = (idx * 2654435761) % 4294967296;
+      var r = (seed % 1000) / 1000;
       var ratio = (p.w && p.h) ? (p.w / p.h) : 1;
 
+      /* Size by ORIENTATION for every photo, including featured. Forcing
+         featured to 2x2 made them all the same oversized block and lost the
+         varied rhythm — they read as "selected" by being in this view at all,
+         not by being bigger. */
       var cw = 1, ch = 1;
-      var forceFeature = (p.feature === true);
-      var forceMinor = (p.feature === false);
-
-      if (forceFeature) {
-        cw = 2; ch = 2;                              // hero
-      } else if (forceMinor) {
-        cw = 1; ch = 1;                              // small
-      } else if (ratio >= 1.35) {
-        // landscape: mostly wide (2x1), but a good share stay 1x1 so the grid
-        // has enough single-width tiles to backfill holes (gapless packing)
-        if (r < 0.55) { cw = 2; ch = 1; }
-        else if (r < 0.65) { cw = 2; ch = 2; }       // occasional big landscape
+      if (ratio >= 1.35) {
+        if (r < 0.55) { cw = 2; ch = 1; }            // landscape -> wide
+        else if (r < 0.65) { cw = 2; ch = 2; }       // occasional big
         else { cw = 1; ch = 1; }
       } else if (ratio <= 0.72) {
-        // portrait: mostly tall (1x2), some 1x1
-        if (r < 0.6) { cw = 1; ch = 2; }
-        else if (r < 0.68) { cw = 2; ch = 2; }       // occasional big portrait
+        if (r < 0.6) { cw = 1; ch = 2; }             // portrait -> tall
+        else if (r < 0.68) { cw = 2; ch = 2; }       // occasional big
         else { cw = 1; ch = 1; }
       } else {
-        cw = 1; ch = 1;                             // square-ish
-        if (r < 0.08) { cw = 2; ch = 2; }           // rare square feature
+        cw = 1; ch = 1;                              // square-ish
+        if (r < 0.08) { cw = 2; ch = 2; }
       }
-
       tile.style.setProperty('--cw', cw);
       tile.style.setProperty('--ch', ch);
-      if (forceFeature) tile.classList.add('is-feature');
+      if (p.feature === true) tile.classList.add('is-feature');
 
       tile.dataset.tags = (p.tags || []).join('|');
-      tile.dataset.index = i;
+      tile.dataset.index = idx;
       tile.setAttribute('role', 'button');
       tile.setAttribute('tabindex', '0');
-      var lbl = (p.tags && p.tags.length) ? p.tags.slice(0, 2).join(' · ') : 'photograph';
+      var lbl = (p.tags && p.tags.length) ? p.tags.slice(0, 2).join(' \u00b7 ') : 'photograph';
       tile.setAttribute('aria-label', 'Open photograph: ' + lbl);
 
       var img = document.createElement('img');
@@ -341,27 +395,50 @@
       img.addEventListener('load', function () { this.classList.add('is-loaded'); });
       tile.appendChild(img);
 
-
       if (p.tags && p.tags.length) {
         var cap = document.createElement('span');
         cap.className = 'tile__cap';
-        cap.textContent = p.tags.slice(0, 2).join(' · ');
+        cap.textContent = p.tags.slice(0, 2).join(' \u00b7 ');
         tile.appendChild(cap);
       }
 
-      tile.addEventListener('click', function () { openLightbox(i); });
+      tile.addEventListener('click', function () { openLightbox(idx, scope); });
       tile.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(idx, scope); }
       });
+      return tile;
+    }
 
-      frag.appendChild(tile);
+    /* ---- featured grid (the landing view) ----
+       Featured tiles page through the FEATURED set only, so the lightbox
+       doesn't silently drop the visitor into all 126 photos. */
+    var featuredIndices = featured.map(function (p) { return photos.indexOf(p); });
+    var fFrag = document.createDocumentFragment();
+    featured.forEach(function (p, n) {
+      fFrag.appendChild(makeTile(p, featuredIndices[n], featuredIndices));
     });
-    chromaField.appendChild(frag);
-    var tiles = chromaField.querySelectorAll('.tile');
+    chromaField.appendChild(fFrag);
+
+    /* ---- archive grid (inside the overlay) ----
+       No scope = pages through every photo, respecting the tag filter. */
+    var archiveField = document.getElementById('chromaArchiveField');
+    if (archiveField) {
+      var aFrag = document.createDocumentFragment();
+      photos.forEach(function (p, i) { aFrag.appendChild(makeTile(p, i)); });
+      archiveField.appendChild(aFrag);
+    }
+    var archiveTiles = archiveField ? archiveField.querySelectorAll('.tile') : [];
 
     initLightbox(photos, function () { return activeTags; });
 
-    /* tag chips, built from the manifest's vocabulary, with live counts */
+    /* ---- "View all" button ---- */
+    var viewAllBtn = document.getElementById('chromaViewAll');
+    if (viewAllBtn) {
+      viewAllBtn.textContent = 'View all ' + photos.length + ' photographs';
+      viewAllBtn.addEventListener('click', openArchive);
+    }
+
+    /* ---- tag chips (live in the archive overlay, where they're useful) ---- */
     if (chromaFilters && data.tags && data.tags.length) {
       var counts = {};
       data.tags.forEach(function (t) { counts[t] = 0; });
@@ -374,10 +451,7 @@
       allChip.className = 'chip';
       allChip.textContent = 'All (' + photos.length + ')';
       allChip.setAttribute('aria-pressed', 'true');
-      allChip.addEventListener('click', function () {
-        activeTags.clear();
-        applyFilter();
-      });
+      allChip.addEventListener('click', function () { activeTags.clear(); applyFilter(); });
       chromaFilters.appendChild(allChip);
 
       data.tags.forEach(function (tag) {
@@ -403,21 +477,61 @@
       });
 
       var visible = 0;
-      tiles.forEach(function (tile) {
+      archiveTiles.forEach(function (tile) {
         var tags = tile.dataset.tags ? tile.dataset.tags.split('|') : [];
         var show = activeTags.size === 0 || tags.some(function (t) { return activeTags.has(t); });
         tile.classList.toggle('is-hidden', !show);
-        tile.style.width = '';
         if (show) visible++;
       });
 
-
-      if (chromaCaption) {
-        chromaCaption.textContent = activeTags.size === 0
-          ? 'Sorted by hue, not by date'
+      var archiveCount = document.getElementById('chromaArchiveCount');
+      if (archiveCount) {
+        archiveCount.textContent = activeTags.size === 0
+          ? photos.length + ' photographs — sorted by hue'
           : visible + ' of ' + photos.length + ' — sorted by hue';
       }
     }
+
+    if (chromaCaption) {
+      chromaCaption.textContent = usingFallback
+        ? 'A selection — sorted by hue, not by date'
+        : featured.length + ' selected works — sorted by hue, not by date';
+    }
+
+    applyFilter();   // set the archive count on load
+  }
+
+  /* ---------- Chroma archive overlay ---------- */
+  var archiveEl = document.getElementById('chromaArchive');
+
+  function openArchive() {
+    if (!archiveEl) return;
+    archiveEl.classList.add('is-open');
+    archiveEl.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    var closeBtn = document.getElementById('chromaArchiveClose');
+    if (closeBtn) closeBtn.focus();
+  }
+  function closeArchive() {
+    if (!archiveEl) return;
+    archiveEl.classList.remove('is-open');
+    archiveEl.setAttribute('aria-hidden', 'true');
+    // only unlock the page if the lightbox isn't also open
+    var lbOpen = document.getElementById('lightbox');
+    if (!(lbOpen && lbOpen.classList.contains('is-open'))) {
+      document.body.classList.remove('modal-open');
+    }
+  }
+  if (archiveEl) {
+    var aClose = document.getElementById('chromaArchiveClose');
+    if (aClose) aClose.addEventListener('click', closeArchive);
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var lbOpen = document.getElementById('lightbox');
+      // Escape closes the lightbox first, then the archive
+      if (lbOpen && lbOpen.classList.contains('is-open')) return;
+      if (archiveEl.classList.contains('is-open')) closeArchive();
+    });
   }
 
   /* ---------- Chroma lightbox (full-size popup) ---------- */
@@ -434,18 +548,31 @@
     lbPhotos = photos;
     if (getActiveTags) lbGetActiveTags = getActiveTags;
   }
+
+  /* Which set the lightbox pages through. Set by openLightbox() from the grid
+     that was clicked: the featured grid pages through featured photos only,
+     the archive pages through everything (respecting the tag filter). */
+  var lbScope = null;   // null = all photos; otherwise an array of indices
+
   function lbBuildList() {
     var active = lbGetActiveTags();
     lbList = [];
-    lbPhotos.forEach(function (p, i) {
+    var pool = lbScope || lbPhotos.map(function (_, i) { return i; });
+    pool.forEach(function (i) {
+      var p = lbPhotos[i];
+      if (!p) return;
       var tags = p.tags || [];
-      if (!active || active.size === 0 || tags.some(function (t) { return active.has(t); })) {
-        lbList.push(i);
-      }
+      // the tag filter only applies to the archive; the featured set is already
+      // a deliberate selection, so it pages through in full
+      var passesFilter = lbScope
+        ? true
+        : (!active || active.size === 0 || tags.some(function (t) { return active.has(t); }));
+      if (passesFilter) lbList.push(i);
     });
   }
-  function openLightbox(photoIndex) {
+  function openLightbox(photoIndex, scope) {
     if (!lb) return;
+    lbScope = scope || null;
     lbBuildList();
     lbPos = lbList.indexOf(photoIndex);
     if (lbPos < 0) lbPos = 0;
