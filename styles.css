@@ -587,6 +587,22 @@ body[data-mode="look"] [data-hero-mode="read"] { display: none; }
   position: relative; /* Lifts it into the stacking context */
   z-index: 10;        /* Places it above the photo grid boundaries */
 }
+.chroma__showcase .cs-frame {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  border-radius: 20px;
+  background: var(--plate);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+}
+.chroma__showcase .cs-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
 .chip {
   all: unset;
   cursor: pointer;

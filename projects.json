@@ -338,7 +338,7 @@
             "Receives assignment brief",
             "Awareness",
             "I have plenty of time.",
-            "😌 Calm",
+            "<i class=\"bi bi-emoji-smile\"></i> Calm",
             "Deadline feels distant",
             "Show visual timeline compression"
           ],
@@ -346,7 +346,7 @@
             "Opens laptop, thinks about starting",
             "Intention",
             "Where do I even begin?",
-            "😐 Uncertain",
+            "<i class=\"bi bi-emoji-neutral\"></i> Uncertain",
             "Task feels large & unclear",
             "Auto-generate first step"
           ],
@@ -354,7 +354,7 @@
             "Reads brief briefly, closes tab",
             "Friction",
             "I'll do it later when I feel ready.",
-            "😕 Mild avoidance",
+            "<i class=\"bi bi-emoji-frown\"></i> Mild avoidance",
             "Cognitive overload",
             "Simplify task into micro-actions"
           ],
@@ -362,7 +362,7 @@
             "Scrolls social media",
             "Delay Loop",
             "Just a short break.",
-            "🙂 Comfortable → 😬 Guilty",
+            "<i class=\"bi bi-emoji-smile-fill\"></i> Comfortable → <i class=\"bi bi-emoji-grimace\"></i> Guilty",
             "Easy dopamine replaces effort",
             "Provide low-effort start mode"
           ],
@@ -370,7 +370,7 @@
             "Remembers assignment occasionally",
             "Emotional Build-up",
             "I should start soon…",
-            "😟 Concern rising",
+            "<i class=\"bi bi-exclamation-circle\"></i> Concern rising",
             "No structured re-entry point",
             "Gentle re-engagement prompts"
           ],
@@ -378,7 +378,7 @@
             "Deadline gets close",
             "Pressure Point",
             "Now I HAVE to do it.",
-            "😰 Stress",
+            "<i class=\"bi bi-emoji-frown\"></i> Stress",
             "Panic-driven productivity",
             "Earlier urgency visualization"
           ],
@@ -386,7 +386,7 @@
             "Starts working intensely",
             "Action",
             "This wasn’t that hard actually.",
-            "😤 Focused",
+            "<i class=\"bi bi-bullseye\"></i> Focused",
             "Starting barrier disappears late",
             "Encourage early momentum"
           ],
@@ -394,7 +394,7 @@
             "Submits assignment",
             "Reflection",
             "Why didn’t I start earlier?",
-            "😓 Relief + regret",
+            "<i class=\"bi bi-emoji-tear\"></i> Relief + regret",
             "Pattern repeats next task",
             "Reflection & learning feedback"
           ]
@@ -1487,7 +1487,7 @@
     "year": "2025",
     "hue": 210,
     "description": "An interactive data visualization and public installation that reveals the invisible labor sustaining cities by transforming public sentiment into dynamic visual form.",
-    
+    "image": "images/City/City_Main.jpg",
     "tags": [
       "Information Design",
       "UX Design",
