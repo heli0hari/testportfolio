@@ -602,49 +602,51 @@ body[data-mode="look"] [data-hero-mode="read"] { display: none; }
    (script.js places them with a greedy packer). Sizes range from tiny to very
    large, mostly tiled with occasional gaps and a ragged edge — a composed
    gallery wall rather than a packed mosaic. */
+/* wrapper holds edge-fade overlays that don't scroll with the content */
 .chroma__field {
-  /* ---- GALLERY SCALE — tune here ----
-     --cols : how many columns the grid has. MORE columns = finer grid, so
-              photos can be smaller and size steps are more granular.
-              FEWER columns = chunkier wall, everything reads bigger.
-     --cell : height of one grid row. Raise it and the whole wall gets taller.
-     Photo sizes themselves (which photo spans how many cells) are set in
-     script.js — see the SIZE POOLS block there. */
-  --cols: 12;
-  --cell: 46px;
+  /* ---- JUSTIFIED MASONRY GRID ----
+     A gapless grid like a photographer's wall. Fixed columns; each tile spans
+     extra columns/rows by orientation (portrait=tall, landscape=wide, some
+     large), and dense packing backfills every hole so there are NO gaps.
+     Responsive: column count and row height step down on smaller screens.
+       --cols  : number of columns
+       --row-h : height of one grid row (a 1x1 tile is --row-h tall) */
+  --cols: 4;
+  --row-h: 200px;
 
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(var(--cols, 12), 1fr);
-  grid-auto-rows: var(--cell, 46px);
-  /* dense packing backfills gaps where a smaller photo fits, so the cluster is
-     mostly tiled — but large photos that can't fit still leave natural holes,
-     which is what keeps it a gallery wall rather than a solid mosaic */
-  grid-auto-flow: row dense;
-  gap: 10px;
-  padding: 0 var(--page-pad);
-  /* generous air around the cluster — the negative space is part of it */
+  grid-template-columns: repeat(var(--cols, 4), 1fr);
+  grid-auto-rows: var(--row-h, 200px);
+  grid-auto-flow: row dense;   /* dense = backfill holes -> gapless */
+  gap: 12px;                    /* breathing room, like the alphabet grid */
+  max-width: 1200px;
   margin: 0 auto;
-  max-width: 1400px;
+  padding: 0 var(--page-pad);
 }
-@media (max-width: 1100px) { .chroma__field { --cols: 10; --cell: 40px; } }
-@media (max-width: 820px)  { .chroma__field { --cols: 8;  --cell: 36px; } }
-@media (max-width: 560px)  { .chroma__field { --cols: 6;  --cell: 32px; gap: 8px; } }
+@media (max-width: 1100px) { .chroma__field { --cols: 4; --row-h: 180px; } }
+@media (max-width: 820px)  {
+  .chroma__field { --cols: 3; --row-h: 190px; }
+  /* 3 columns don't divide by 2-wide tiles cleanly, stranding holes. Flatten
+     ALL tiles to 1 column (portraits keep their extra row height). Uniform
+     width in 3 columns packs perfectly gapless. */
+  .chroma__field .tile { grid-column: span 1 !important; }
+}
+@media (max-width: 560px)  { .chroma__field { --cols: 2; --row-h: 175px; } }
 
 .tile {
   position: relative;
   display: block;
-  /* grid placement from script.js; min() caps the span so a wide photo can
-     never exceed the column count on narrow screens */
-  grid-column: span min(var(--cw, 2), var(--cols, 12));
-  grid-row: span var(--ch, 3);
+  /* span from script.js; min() caps width so it never exceeds the column count */
+  grid-column: span min(var(--cw, 1), var(--cols, 4));
+  grid-row: span var(--ch, 1);
   overflow: hidden;
   background: oklch(0.5 0.05 var(--hue, 240));
   cursor: pointer;
   z-index: 1;
   transform: translate(0, 0) scale(1);
-  transition: transform 420ms var(--ease), box-shadow 420ms var(--ease);
+  transition: transform 420ms var(--ease), box-shadow 420ms var(--ease), opacity 300ms var(--ease);
 }
 .tile.is-hidden { display: none; }
 
@@ -686,20 +688,15 @@ body[data-mode="look"] [data-hero-mode="read"] { display: none; }
   opacity: calc(var(--tintOpacity, 0.45) * 0.75);
 }
 
-/* hover: the active photo grows and lifts. Neighbours are nudged aside by
-   script.js — all via transform, which does NOT affect layout, so the masonry
-   never reflows and nothing can cascade or glitch. */
+/* hover: the photo lifts slightly and brightens — like the alphabet tiles.
+   No scale-up (scaling made tiles overlap their neighbours and look broken)
+   and no neighbour pushing; just a clean lift within the tile's own cell. */
 .tile:hover,
 .tile:focus-visible {
-  transform: translate(0, -6px) scale(1.09);
-  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.26);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
   z-index: 10;
   outline: none;
-}
-/* a nudged neighbour — script.js sets --nx / --ny, we just apply them */
-.tile.is-nudged {
-  transform: translate(var(--nx, 0px), var(--ny, 0px)) scale(0.985);
-  z-index: 2;
 }
 .tile:hover img,
 .tile:focus-visible img {
@@ -773,30 +770,44 @@ body[data-mode="look"] [data-hero-mode="read"] { display: none; }
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none; border: none;
-  color: rgba(255,255,255,0.7);
-  font-size: 34px; line-height: 1;
-  cursor: pointer; padding: 20px;
-  transition: color 200ms var(--ease);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  border-radius: 50%;
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 26px; line-height: 1;
+  cursor: pointer; padding: 0;
+  z-index: 5;
+  transition: background-color 200ms var(--ease);
 }
-.lightbox__btn:hover { color: #fff; }
-.lightbox__btn--prev { left: 8px; }
-.lightbox__btn--next { right: 8px; }
+.lightbox__btn:hover { background: rgba(0, 0, 0, 0.7); color: #fff; }
+.lightbox__btn--prev { left: max(12px, env(safe-area-inset-left, 0px)); }
+.lightbox__btn--next { right: max(12px, env(safe-area-inset-right, 0px)); }
 .lightbox__close {
   position: absolute;
-  top: 18px; right: 22px;
-  background: none; border: none;
-  color: rgba(255,255,255,0.7);
-  cursor: pointer; padding: 8px;
+  top: max(18px, env(safe-area-inset-top, 0px));
+  right: max(18px, env(safe-area-inset-right, 0px));
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  cursor: pointer; padding: 0;
+  z-index: 5;
+  transition: background-color 200ms var(--ease);
 }
-.lightbox__close:hover { color: #fff; }
+.lightbox__close:hover { background: rgba(0, 0, 0, 0.7); color: #fff; }
 .lightbox__count {
   position: absolute;
-  top: 22px; left: 24px;
+  top: max(24px, calc(env(safe-area-inset-top, 0px) + 8px));
+  left: max(24px, env(safe-area-inset-left, 0px));
   color: rgba(255,255,255,0.55);
   font-size: 12px;
   letter-spacing: 0.08em;
   font-variant-numeric: tabular-nums;
+  z-index: 5;
 }
 @media (prefers-reduced-motion: reduce) {
   .lightbox, .lightbox__img, .tile, .tile img { transition-duration: 1ms; }

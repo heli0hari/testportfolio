@@ -81,6 +81,26 @@
     if (p && p.catch) p.catch(function () {});   // ignore autoplay rejections
   }
 
+  /* Ambient car videos play only while visible. This prevents many videos
+     playing at once (which browsers throttle, causing the random-pause bug)
+     and saves battery on mobile. The lightbox pauses all of these while open. */
+  var ambientObserver = ('IntersectionObserver' in window)
+    ? new IntersectionObserver(function (entries) {
+        // if the lightbox is open, leave everything paused
+        var lbOpen = flb && flb.classList.contains('is-open');
+        entries.forEach(function (en) {
+          var v = en.target;
+          if (en.isIntersecting && !lbOpen) playSafe(v);
+          else v.pause();
+        });
+      }, { threshold: 0.25 })
+    : null;
+
+  function observeAmbient(v) {
+    if (ambientObserver) ambientObserver.observe(v);
+    else playSafe(v);   // no observer support: fall back to plain play
+  }
+
   function buildCars(cars) {
     var frag = document.createDocumentFragment();
     cars.forEach(function (item, i) {
@@ -96,12 +116,16 @@
         if (item.poster) v.poster = item.poster;   // optional, usually omitted
         v.muted = true; v.loop = true; v.playsInline = true;
         v.setAttribute('playsinline', '');
+        v.setAttribute('data-ambient', '');        // ambient loop (resumes after lightbox)
         v.preload = 'metadata';
-        v.autoplay = true;
+        // NOT autoplay — an observer plays it only while it's on screen, so we
+        // never have many videos competing (the cause of random pausing) and we
+        // save battery/bandwidth on mobile.
         v.className = 'fcar__media';
         if (item.focus) v.style.objectPosition = item.focus;
         cell.appendChild(v);
         cell.dataset.video = item.video;
+        observeAmbient(v);
       } else if (item.type === 'image' && item.image) {
         var img = document.createElement('img');
         img.src = item.image; img.alt = item.alt || '';
@@ -191,8 +215,18 @@
   var flbVideo = flb && document.getElementById('forgeLightboxVideo');
   var flbCap = flb && document.getElementById('forgeLightboxCap');
 
+  function allCellVideos() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll('.fcar video, .glyph video')
+    );
+  }
+
   function openForgeLightbox(src, caption) {
     if (!flb) return;
+    // pause every background cell video so nothing competes with the lightbox
+    // (competing videos are what caused the random pausing, esp. on mobile)
+    allCellVideos().forEach(function (v) { v.pause(); });
+
     flbVideo.src = src;
     flbVideo.muted = false;          // sound on when explicitly opened
     flbCap.textContent = caption || '';
@@ -209,6 +243,10 @@
     flb.classList.remove('is-open');
     flb.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+    // resume the ambient car loops that were playing at rest
+    allCellVideos().forEach(function (v) {
+      if (v.hasAttribute('data-ambient')) playSafe(v);
+    });
   }
   if (flb) {
     document.getElementById('forgeLightboxClose').addEventListener('click', closeForgeLightbox);
@@ -248,58 +286,45 @@
       tile.style.setProperty('--hue', (p.hue != null ? p.hue : 240));
       if (p.bw) tile.classList.add('is-bw');       // no hue tint for greyscale
 
-      /* Deterministic pseudo-random SIZE, spanning a wide range of grid cells —
-         tiny thumbnails next to large prints, like a gallery wall. Seeded from
-         the index so it looks random but is identical on every reload (a truly
-         random layout would reshuffle each visit and feel broken). */
+      /* Gapless justified grid (like the reference). Each tile spans grid cells
+         based on its orientation so tall/wide/large tiles interlock and dense
+         packing leaves NO holes:
+           portrait  -> 1 col x 2 rows (tall)
+           landscape -> 2 col x 1 row  (wide)
+           square-ish-> 1 x 1
+         A deterministic slice of photos become 2x2 "feature" tiles for rhythm.
+         Seeded from the index so the layout is stable across reloads. */
       var seed = (i * 2654435761) % 4294967296;
-      var r1 = (seed % 1000) / 1000;                 // 0..1
-      var r2 = ((seed >> 10) % 1000) / 1000;         // 0..1, decorrelated
-      var isLandscape = p.w && p.h && p.w > p.h;
+      var r = (seed % 1000) / 1000;                 // 0..1, stable per photo
+      var ratio = (p.w && p.h) ? (p.w / p.h) : 1;
 
-      /* ---- SIZE POOLS — tune the gallery here ----
-         Each entry is [columns, rows] the photo spans on the grid.
-         Repeating an entry makes it MORE LIKELY (that's how you shape the mix).
-         Bigger numbers = bigger photo. Cap is the column count (--cols in CSS).
+      var cw = 1, ch = 1;
+      var forceFeature = (p.feature === true);
+      var forceMinor = (p.feature === false);
 
-         A photo's size is chosen deterministically from its index, so the wall
-         looks random but never reshuffles between reloads. */
-
-      // normal photos: mostly mid-sized, a few tiny, a few large
-      var portraitSizes = [
-        [1,2], [2,2],                     // small
-        [2,3], [2,3], [2,3],              // mid (most common)
-        [3,4], [3,4], [3,5],              // mid-large
-        [4,5], [4,6]                      // large
-      ];
-      var landscapeSizes = [
-        [2,2], [3,2],
-        [3,2], [4,3], [4,3],
-        [5,3], [5,4]
-      ];
-
-      // FEATURED photos (set "feature": true in photos.json) — large end only
-      var portraitFeature  = [ [4,6], [5,6], [5,7], [4,5] ];
-      var landscapeFeature = [ [6,4], [6,5], [5,4], [7,5] ];
-
-      // MINOR photos (set "feature": false in photos.json) — small end only
-      var portraitMinor  = [ [1,1], [1,2], [2,2] ];
-      var landscapeMinor = [ [2,1], [2,2], [3,2] ];
-      /* ---- end tuning ---- */
-
-      var pool;
-      if (p.feature === true) {
-        pool = isLandscape ? landscapeFeature : portraitFeature;
-      } else if (p.feature === false) {
-        pool = isLandscape ? landscapeMinor : portraitMinor;
+      if (forceFeature) {
+        cw = 2; ch = 2;                              // hero
+      } else if (forceMinor) {
+        cw = 1; ch = 1;                              // small
+      } else if (ratio >= 1.35) {
+        // landscape: mostly wide (2x1), but a good share stay 1x1 so the grid
+        // has enough single-width tiles to backfill holes (gapless packing)
+        if (r < 0.55) { cw = 2; ch = 1; }
+        else if (r < 0.65) { cw = 2; ch = 2; }       // occasional big landscape
+        else { cw = 1; ch = 1; }
+      } else if (ratio <= 0.72) {
+        // portrait: mostly tall (1x2), some 1x1
+        if (r < 0.6) { cw = 1; ch = 2; }
+        else if (r < 0.68) { cw = 2; ch = 2; }       // occasional big portrait
+        else { cw = 1; ch = 1; }
       } else {
-        pool = isLandscape ? landscapeSizes : portraitSizes;
+        cw = 1; ch = 1;                             // square-ish
+        if (r < 0.08) { cw = 2; ch = 2; }           // rare square feature
       }
-      var pick = pool[Math.floor(r1 * pool.length)];
-      if (p.feature === true) tile.classList.add('is-feature');
 
-      tile.style.setProperty('--cw', pick[0]);       // width in grid columns
-      tile.style.setProperty('--ch', pick[1]);       // height in grid rows
+      tile.style.setProperty('--cw', cw);
+      tile.style.setProperty('--ch', ch);
+      if (forceFeature) tile.classList.add('is-feature');
 
       tile.dataset.tags = (p.tags || []).join('|');
       tile.dataset.index = i;
@@ -334,7 +359,6 @@
     chromaField.appendChild(frag);
     var tiles = chromaField.querySelectorAll('.tile');
 
-    setupNeighbourParting(chromaField);
     initLightbox(photos, function () { return activeTags; });
 
     /* tag chips, built from the manifest's vocabulary, with live counts */
@@ -394,67 +418,6 @@
           : visible + ' of ' + photos.length + ' — sorted by hue';
       }
     }
-  }
-
-  /* ---------- Chroma neighbour parting ----------
-     On hover, tiles near the active one nudge away from it. This is done with
-     transform ONLY — transforms don't participate in layout, so the masonry
-     never reflows, nothing cascades, and there is no glitch surface. The push
-     falls off with distance, so the crowd parts smoothly around the active
-     photo instead of everything jumping at once. */
-  function setupNeighbourParting(field) {
-    var RADIUS = 460;    // px: how far the influence reaches
-    var PUSH   = 30;     // px: max displacement of the closest neighbour
-    var nudged = [];
-
-    function clear() {
-      nudged.forEach(function (t) {
-        t.classList.remove('is-nudged');
-        t.style.removeProperty('--nx');
-        t.style.removeProperty('--ny');
-      });
-      nudged = [];
-    }
-
-    function part(active) {
-      clear();
-      var a = active.getBoundingClientRect();
-      var ax = a.left + a.width / 2;
-      var ay = a.top + a.height / 2;
-
-      field.querySelectorAll('.tile:not(.is-hidden)').forEach(function (t) {
-        if (t === active) return;
-        var r = t.getBoundingClientRect();
-        var dx = (r.left + r.width / 2) - ax;
-        var dy = (r.top + r.height / 2) - ay;
-        var dist = Math.hypot(dx, dy);
-        if (dist > RADIUS || dist === 0) return;
-
-        // strength falls off with distance (1 at the centre, 0 at the radius)
-        var strength = 1 - (dist / RADIUS);
-        var force = PUSH * strength * strength;   // squared = tighter falloff
-        t.style.setProperty('--nx', ((dx / dist) * force).toFixed(1) + 'px');
-        t.style.setProperty('--ny', ((dy / dist) * force).toFixed(1) + 'px');
-        t.classList.add('is-nudged');
-        nudged.push(t);
-      });
-    }
-
-    field.addEventListener('mouseover', function (e) {
-      var t = e.target.closest && e.target.closest('.tile');
-      if (t && !t.classList.contains('is-hidden')) part(t);
-    });
-    field.addEventListener('mouseleave', clear);
-    field.addEventListener('focusin', function (e) {
-      var t = e.target.closest && e.target.closest('.tile');
-      if (t) part(t);
-    });
-    field.addEventListener('focusout', function (e) {
-      var to = e.relatedTarget && e.relatedTarget.closest
-        ? e.relatedTarget.closest('.tile') : null;
-      if (!to) clear();
-    });
-    window.addEventListener('resize', clear);
   }
 
   /* ---------- Chroma lightbox (full-size popup) ---------- */
