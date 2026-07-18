@@ -671,7 +671,6 @@ body[data-mode="look"] [data-hero-mode="read"] { display: none; }
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--page-pad);
-  pointer-events: none;
 }
 @media (max-width: 1100px) { .chroma__field { --cols: 4; --row-h: 180px; } }
 @media (max-width: 820px)  {
@@ -1924,19 +1923,26 @@ html:has(body.modal-open) { overflow: hidden; }
 }
 .chroma__viewall:hover::after { transform: translateX(4px); }
 
-/* ---- archive overlay ---- */
 .chroma-archive {
   position: fixed;
   inset: 0;
-  height: 100dvh;          /* explicit height so the flex children can size */
+  height: 100dvh;
   z-index: 90;
-  display: none;
+  display: flex; /* Changed from none to flex */
   flex-direction: column;
   background: var(--ground);
   opacity: 0;
-  transition: opacity 280ms var(--ease);
+  visibility: hidden;           /* ADD THIS */
+  pointer-events: none;         /* ADD THIS — lets clicks pass through */
+  transition: opacity 280ms var(--ease), visibility 0s 280ms;
 }
-.chroma-archive.is-open { display: flex; opacity: 1; }
+
+.chroma-archive.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;         /* ADD THIS — enables clicks when open */
+  transition: opacity 280ms var(--ease), visibility 0s;
+}
 
 .chroma-archive__bar {
   flex: 0 0 auto;
