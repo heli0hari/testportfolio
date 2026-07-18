@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harigovind Sajimon — Designer, Dublin</title>
+  <meta name="description" content="Product, visual, interactive and 3D design. Research to real-time 3D — Harigovind Sajimon, Dublin.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-mode="read">
+
+  <!-- content wrapper receives the mid-transition blur -->
+  <div class="stage" id="stage">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Intro">
+      <header class="hero__bar">
+        <div class="hero__mark">Harigovind Sajimon</div>
+        <div class="hero__meta">Designer — Dublin</div>
+      </header>
+
+      <div class="hero__body">
+        <div class="hero__thesis-wrap">
+
+          <h1 class="thesis__srtitle" data-hero-mode="read">I am a dreamer and an analyzer. A designer blending bold imagination with rigorous research to build better products.</h1>
+          <h1 class="thesis__srtitle" data-hero-mode="look">Exploring the intersection of wild imagination and technical precision through 3D and motion.</h1>
+
+          <div class="thesis__poster" data-hero-mode="read" aria-hidden="true">
+            <span class="thesis__side">UX &middot; RESEARCH &middot; SYSTEMS</span>
+
+            <div class="thesis__main">
+              <p class="thesis__cap thesis__cap--top">imagination meets rigorous research <span class="thesis__arrow">&rarr;</span></p>
+
+              <div class="thesis__words">
+                <span class="thesis__word">Analyst.</span>
+                <span class="thesis__word">Observer.</span>
+                <span class="thesis__word">Designer.</span>
+              </div>
+
+              <p class="thesis__cap thesis__cap--bottom"><span class="thesis__arrow">&rarr;</span> making sense of complexity</p>
+            </div>
+
+            
+          </div>
+
+          <div class="thesis__poster" data-hero-mode="look" aria-hidden="true">
+            <span class="thesis__side">3D &middot; MOTION &middot; FILM</span>
+
+            <div class="thesis__main">
+              <p class="thesis__cap thesis__cap--top">visionary concepts and visual explorations <span class="thesis__arrow">&rarr;</span></p>
+
+              <div class="thesis__words">
+                <span class="thesis__word">Dreamer.</span>
+                <span class="thesis__word">Explorer.</span>
+                <span class="thesis__word">Storyteller.</span>
+              </div>
+
+              <p class="thesis__cap thesis__cap--bottom"><span class="thesis__arrow">&rarr;</span> wild ideas, precisely executed</p>
+            </div>
+
+            
+          </div>
+
+        </div>
+
+        <div class="switch" role="tablist" aria-label="Choose a way through the work">
+          <button class="switch__btn" role="tab" data-mode-btn="read" aria-selected="true">
+            Read
+            <span class="switch__ind" aria-hidden="true"></span>
+          </button>
+          <button class="switch__btn" role="tab" data-mode-btn="look" aria-selected="false">
+            Look
+            <span class="switch__ind" aria-hidden="true"></span>
+          </button>
+          <span class="switch__hint">— two ways through the work</span>
+        </div>
+
+        <div class="cta">
+          <a href="#contact" class="cta__primary">Get in touch</a>
+          <a href="#cv" class="cta__secondary">Download CV</a>
+        </div>
+      </div>
+
+      <div class="hero__scrollcue">Selected work ↓</div>
+    </section>
+
+    <!-- ============ READ MOMENT ============ -->
+    <section class="read-moment" data-panel="read" aria-label="Read — case study">
+      <div class="read-moment__inner">
+        <div class="eyebrow">Read</div>
+
+        <h2 class="read-moment__title">Hiro — Task Starting Assistant</h2>
+
+        <p class="read-moment__lede">A behavioural productivity assistant designed to help people overcome procrastination by reducing the friction between intention and starting work.</p>
+
+        <div class="metarow">
+          <span>2026</span>
+          <span class="metarow__dot">·</span>
+          <span>UX/UI Case Study</span>
+          <span class="metarow__dot">·</span>
+          <span>Behavioral Design</span>
+        </div>
+
+        <div class="plate plate--wide" role="img" aria-label="Hiro — Task Starting Assistant">
+          <img src="images/Hiro/Title.jpg" alt="Hiro Case Study Title" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+
+        <p class="read-moment__body">Hiro is a productivity assistant designed to help people overcome the starting barrier of work. By reducing cognitive friction and adapting to fluctuating energy levels, Hiro helps users start earlier and maintain momentum throughout a task.</p>
+
+        <a href="#case-study" class="readlink" data-project="hiro-assistant">Continue reading <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ============ READ — MORE WORK RAIL ============ -->
+    <section class="rail" data-panel="read" aria-label="More work in Read" id="railSection">
+      <div class="rail__pin">
+        <div class="rail__head">
+          <div class="eyebrow">More work</div>
+          <div class="rail__hint" aria-hidden="true" id="railHint">Scroll to explore ↓</div>
+        </div>
+
+        <ul class="rail__track" tabindex="0" aria-label="Project list, scrollable">
+        <li class="pcard">
+          <a class="pcard__link" href="#beneath" data-project="city-beneaththesurface">
+            <div class="plate pcard__plate" style="--phue:210;" role="img" aria-label="City: Beneath the Surface">
+              <img src="images/City/City_Main.jpg" alt="City: Beneath the Surface Thumbnail" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <h3 class="pcard__title">City: Beneath the Surface</h3>
+            <p class="pcard__desc">Dublin's hidden workforce as a physics-based data narrative.</p>
+            <div class="metarow pcard__meta"><span>2025</span><span class="metarow__dot">·</span><span>Data viz</span><span class="metarow__dot">·</span><span>Three.js</span></div>
+          </a>
+        </li>
+        
+        <li class="pcard">
+          <a class="pcard__link" href="#dub" data-project="dub-transit">
+            <div class="plate pcard__plate" style="--phue:150;" role="img" aria-label="DUB Transit">
+                <img src="images/dubtransit/dubscreen.png" alt="DUB Transit Thumbnail" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <h3 class="pcard__title">DUB Transit</h3>
+            <p class="pcard__desc">Real-time transit interface with glanceable route cards.</p>
+            <div class="metarow pcard__meta"><span>2024</span><span class="metarow__dot">·</span><span>UX</span><span class="metarow__dot">·</span><span>Mobility</span></div>
+          </a>
+        </li>
+        
+        <li class="pcard">
+          <a class="pcard__link" href="#theyyam" data-project="theyyam-threads">
+            <div class="plate pcard__plate" style="--phue:12;" role="img" aria-label="Theyyam Threads">
+              <img src="images/Theyyam/Theyyam_1.jpg" alt="Theyyam Threads Thumbnail" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <h3 class="pcard__title">Theyyam Threads</h3>
+            <p class="pcard__desc">A Kerala ritual art form translated into contemporary apparel.</p>
+            <div class="metarow pcard__meta"><span>2023</span><span class="metarow__dot">·</span><span>Visual</span><span class="metarow__dot">·</span><span>Research</span></div>
+          </a>
+        </li>
+        
+        <li class="pcard">
+          <a class="pcard__link" href="#artbox" data-project="artbox">
+            <div class="plate pcard__plate" style="--phue:280;" role="img" aria-label="ArtBox">
+              <img src="images/Artbox/Artbox_Title.jpg" alt="ArtBox Thumbnail" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <h3 class="pcard__title">ArtBox</h3>
+            <p class="pcard__desc">Identity, packaging and unboxing as one designed journey.</p>
+            <div class="metarow pcard__meta"><span>2023</span><span class="metarow__dot">·</span><span>Brand</span><span class="metarow__dot">·</span><span>Packaging</span></div>
+          </a>
+        </li>
+        
+        <li class="pcard">
+          <a class="pcard__link" href="#aujus" data-project="aujus">
+            <div class="plate pcard__plate" style="--phue:90;" role="img" aria-label="Aujus Case Study">
+              <img src="images/Aujus/Aujus_Card.jpg" alt="Aujus Case Study Title" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <h3 class="pcard__title">Aujus</h3>
+            <p class="pcard__desc">A wayfinding and service system with a unified visual identity.</p>
+            <div class="metarow pcard__meta"><span>2022</span><span class="metarow__dot">·</span><span>Systems</span><span class="metarow__dot">·</span><span>Wayfinding</span></div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+<!-- ============ LOOK MOMENT — FORGE ============ -->
+<section class="forge" data-panel="look" aria-label="Look — Forge 3D work">
+
+    <header class="forge__header">
+        <div class="eyebrow">Look</div>
+        <h2 class="forge__title">
+            Motion & 3D
+        </h2>
+        <p class="forge__intro">
+            Real-time renders, animation studies and experimental motion work.
+        </p>
+    </header>
+
+    <section class="forge__section">
+        <div class="forge__section-head">
+            <h3>Motorhead</h3>
+        </div>
+        <div class="forge__cars" id="forgeCars">
+        </div>
+    </section>
+
+    <section class="forge__section">
+        <div class="forge__section-head">
+            <h3>3D Typography</h3>
+        </div>
+        <div class="forge__grid" id="glyphGrid">
+        </div>
+    </section>
+
+</section>
+
+<!-- ============ LOOK MOMENT — CHROMA ============ -->
+<section class="chroma" data-panel="look" aria-label="Look — Chroma photography">
+
+    <header class="chroma__head">
+        <div class="eyebrow">Look</div>
+        <h2 class="chroma__title">Chroma</h2>
+        <p class="chroma__intro">
+            A growing collection of photographs documenting people, colour, architecture and everyday moments.
+        </p>
+        <div class="chroma__filters" id="chromaFilters" role="group" aria-label="Filter photos by tag">
+        </div>
+    </header>
+
+    <div class="chroma__field" id="chromaField"></div>
+
+    <div class="chroma__caption">
+        <p id="chromaCaption">Sorted by hue, not by date.</p>
+    </div>
+
+</section>
+
+  </div>
+
+  <!-- ============ FORGE LIGHTBOX (video player) ============ -->
+  <div class="forge-lightbox" id="forgeLightbox" aria-hidden="true">
+    <button type="button" class="forge-lightbox__close" id="forgeLightboxClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <video class="forge-lightbox__video" id="forgeLightboxVideo" controls loop playsinline></video>
+    <div class="forge-lightbox__cap" id="forgeLightboxCap"></div>
+  </div>
+
+<!-- ============ PROJECT DETAIL MODAL ============ -->
+  <div class="project-modal" id="projectModal" aria-hidden="true" tabindex="-1">
+    <div class="project-modal__scroll">
+      
+      <header class="project-modal__header">
+        <button type="button" class="project-modal__back" data-modal-close aria-label="Close project">
+          &larr; Harigovind Sajimon
+        </button>
+        <div class="project-modal__cat" id="projectModalTopCat">UX/UI Case Study</div>
+      </header>
+
+      <div class="project-modal__inner">
+        <div class="project-modal__eyebrow">READ &mdash; CASE STUDY</div>
+        <h1 class="project-modal__title" id="projectModalTitle"></h1>
+        <p class="project-modal__desc" id="projectModalDesc"></p>
+        
+        <div class="metarow project-modal__meta" id="projectModalMeta"></div>
+
+        <div class="plate project-modal__plate" id="projectModalPlate" role="img" aria-hidden="true">
+          <span class="plate__label" id="projectModalPlateLabel"></span>
+        </div>
+        
+        <div class="project-modal__content" id="projectModalContent"></div>
+
+        <footer class="project-modal__footer">
+          <div class="project-modal__footer-eyebrow">NEXT <span>&rarr;</span></div>
+          <button class="project-modal__footer-title" id="projectModalNextTitle"></button>
+        </footer>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ CHROMA LIGHTBOX (full-size popup) ============ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__count" id="lightboxCount"></div>
+    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="lightbox__btn lightbox__btn--prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <img class="lightbox__img" id="lightboxImg" alt="">
+    <button type="button" class="lightbox__btn lightbox__btn--next" id="lightboxNext" aria-label="Next">&#8250;</button>
+    <div class="lightbox__cap" id="lightboxCap"></div>
+  </div>
+
+  <script src="script.js"></script>
+
+<!-- ============ CONTACT MODAL ============ -->
+<div class="project-modal" id="contactModal" aria-hidden="true" tabindex="-1">
+  <div class="project-modal__scroll">
+    <header class="project-modal__header">
+      <button type="button" class="project-modal__back" data-modal-close aria-label="Close contact">
+        &larr; Harigovind Sajimon
+      </button>
+    </header>
+
+    <div class="project-modal__inner">
+      <div class="project-modal__eyebrow">GET IN TOUCH</div>
+      <h1 class="project-modal__title">Let's create something together.</h1>
+      
+      <p class="project-modal__desc">
+        I’m currently open to new opportunities for UX design, behavioral research, or 3D/motion projects. If you have an idea, a complex problem that needs analysis, or just want to chat, I'd love to hear from you.
+      </p>
+
+      <div class="cs-card">
+        <div class="cs-label">Email me directly</div>
+        <p><a href="mailto:harigovind.ie@gmail.com" class="contact-email">harigovind.ie@gmail.com</a></p>
+      </div>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="cs-contact-form">
+  <div class="cs-card">
+    <input type="text" name="name" placeholder="Your Name" required>
+  </div>
+  <div class="cs-card">
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+  <div class="cs-card">
+    <textarea name="message" placeholder="Your Message" required></textarea>
+  </div>
+  
+  <button type="submit" class="cta__primary">Send Message</button>
+</form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

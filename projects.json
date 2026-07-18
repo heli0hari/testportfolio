@@ -1,0 +1,2182 @@
+{
+  "hiro-assistant": {
+    "title": "Hiro — Task Starting Assistant",
+    "category": "UX/UI Case Study",
+    "year": "2026",
+    "hue": 30,
+    "description": "A behavioural productivity assistant designed to help people overcome procrastination by reducing the friction between intention and starting work.",
+    "image": "images/Hiro/Title.jpg",
+    "tags": [
+      "UX Design",
+      "Product Strategy",
+      "Behavioral Design",
+      "Interaction Design",
+      "User Research"
+    ],
+    "content": [
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Hiro/Title.jpg",
+          "alt": "Hiro productivity assistant title"
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Hiro is a productivity assistant designed to help people overcome the starting barrier of work. Instead of focusing on scheduling or task management, the system focuses on the moment users struggle most: the transition between intention and action."
+      },
+      {
+        "type": "paragraph",
+        "value": "By reducing cognitive friction, adapting to fluctuating energy levels, and encouraging small initial actions, Hiro helps users start earlier and maintain momentum throughout a task."
+      },
+      {
+        "type": "heading",
+        "value": "Understanding Procrastination"
+      },
+      {
+        "type": "paragraph",
+        "value": "Procrastination means postponing something that would benefit you if done today. This may include studying for exams, completing assignments, making phone calls, or finishing professional tasks."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Hiro/Proc.jpg",
+          "alt": "Procrastination"
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Research shows procrastination is not laziness but a coping mechanism used to temporarily escape unpleasant emotions such as anxiety, boredom, frustration, or self-doubt."
+      },
+      {
+        "type": "heading",
+        "value": "Neurological Explanation"
+      },
+      {
+        "type": "paragraph",
+        "value": "At a neurological level, procrastination is a battle between two primary regions of the brain: the limbic system and the prefrontal cortex. The limbic system, often referred to as the emotional brain, prioritises immediate satisfaction and pleasure, seeking short-term fulfilment. The prefrontal cortex, in contrast, is responsible for more complex cognitive functions, including long-term planning, impulse control, and decision-making."
+      },
+      {
+        "type": "comparison",
+        "value": {
+          "title": "Brain Conflict During Procrastination",
+          "left": {
+            "title": "Limbic System",
+            "items": [
+              "Emotional brain",
+              "Seeks immediate pleasure",
+              "Social media",
+              "Entertainment",
+              "Low-effort activities"
+            ]
+          },
+          "right": {
+            "title": "Prefrontal Cortex",
+            "items": [
+              "Logical planning",
+              "Decision making",
+              "Studying",
+              "Writing assignments",
+              "Complex tasks"
+            ]
+          }
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "When tasks feel unpleasant or difficult, the limbic system prioritises immediate comfort over the logical reasoning of the prefrontal cortex, resulting in procrastination."
+      },
+      {
+        "type": "subheading",
+        "value": "Additional Causes of Procrastination"
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "Many people believe motivation must come before action, when in reality action often creates motivation.",
+          "Fear of failure is a major cause of task avoidance.",
+          "Perfectionists delay tasks because they believe everything must be done perfectly.",
+          "Self-criticism and unrealistic expectations reinforce avoidance behaviour.",
+          "Frequent 'should' statements create guilt and resentment, leading to further procrastination."
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Existing Productivity Approaches"
+      },
+      {
+        "type": "paragraph",
+        "value": "One traditional approach to overcoming procrastination is SMART goal setting."
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "SMART Component",
+            "Explanation"
+          ],
+          [
+            "Specific",
+            "Define clear and precise study goals"
+          ],
+          [
+            "Measurable",
+            "Track progress using checklists or measurable outputs"
+          ],
+          [
+            "Achievable",
+            "Break the goal into smaller concrete achievable steps"
+          ],
+          [
+            "Realistic",
+            "Ensure goals are achievable"
+          ],
+          [
+            "Time Based",
+            "Work backwards from deadlines"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Hiro/smart.jpg",
+          "alt": "SMART"
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Other behavioural techniques include establishing a routine, preparing tasks for the next study session, and rewarding yourself after completing goals."
+      },
+      {
+        "type": "heading",
+        "value": "User Research"
+      },
+      {
+        "type": "paragraph",
+        "value": "To understand real behaviour patterns, I conducted a Google survey targeting students, young adults, and early professionals."
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Primary users: students, young professionals, early career workers",
+          "Digital-native behaviour with heavy smartphone usage",
+          "People juggle study, work, and personal responsibilities",
+          "Motivation fluctuates rather than ability"
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Behavioural Insights"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "Observation",
+            "Insight"
+          ],
+          [
+            "~78% delay tasks sometimes",
+            "Procrastination is common behaviour"
+          ],
+          [
+            "Task complexity",
+            "Users avoid unclear starting points"
+          ],
+          [
+            "Low energy",
+            "Energy strongly influences task engagement"
+          ],
+          [
+            "Distant deadlines",
+            "Urgency appears late"
+          ],
+          [
+            "Unclear instructions",
+            "Users struggle with task initiation"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "The research indicates that people are not lazy; they are context-sensitive starters."
+      },
+      {
+        "type": "subheading",
+        "value": "What Users Do Instead"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Social media",
+          "Other productive tasks",
+          "Small chores"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Users rarely remain inactive. Instead they switch to easier tasks that provide immediate psychological rewards."
+      },
+      {
+        "type": "subheading",
+        "value": "Emotional State After Procrastinating"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "Emotion",
+            "Frequency"
+          ],
+          [
+            "Slight concern",
+            "High"
+          ],
+          [
+            "Stress",
+            "Moderate"
+          ],
+          [
+            "Guilt",
+            "Common"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Users already experience psychological cost after procrastinating. Therefore guilt-based design approaches are ineffective."
+      },
+      {
+        "type": "heading",
+        "value": "Core UX Problem Statement"
+      },
+      {
+        "type": "paragraph",
+        "value": "Young adults delay tasks not because of lack of motivation, but because of low energy, unclear starting points, and distant deadlines. This leads to task switching toward easier activities and increased stress."
+      },
+      {
+        "type": "heading",
+        "value": "User Personas"
+      },
+      {
+        "type": "subheading",
+        "value": "Rick Austin — The Overloaded Student (20)"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Heavy smartphone user",
+          "Constant social media exposure",
+          "Delays tasks when they feel complex",
+          "Switches to social media when unsure how to begin"
+        ]
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "<strong>Behavioural Insight:</strong> Rick avoids the unclear beginning of large tasks.",
+          "<strong>Quote:</strong> 'I'll start after one reel… maybe after this one.'",
+          "<strong>Design Need:</strong> Automatic task breakdown and quick first action."
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Riya Jerald — Independent Planner (38)"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Freelancer and parent",
+          "Prefers structured planning",
+          "Delays work when urgency feels low"
+        ]
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "<strong>Behavioural Insight:</strong> Deadline distance reduces urgency.",
+          "<strong>Quote:</strong> 'There's time. I'll block it tomorrow.'",
+          "<strong>Design Need:</strong> Visual deadline compression and progress visibility."
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Rahul Dev — Balancing Professional (29)"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Uses productivity apps inconsistently",
+          "Struggles with mental fatigue after work"
+        ]
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "<strong>Behavioural Insight:</strong> Rahul engages in productive procrastination.",
+          "<strong>Quote:</strong> 'Let me clear emails first.'",
+          "<strong>Design Need:</strong> Energy-based task suggestions."
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "User Journey Map — The Delay Loop"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "User Actions",
+            "Journey Stage",
+            "Thoughts",
+            "Emotions",
+            "Pain Points",
+            "Opportunities (Design Intervention)"
+          ],
+          [
+            "Receives assignment brief",
+            "Awareness",
+            "I have plenty of time.",
+            "😌 Calm",
+            "Deadline feels distant",
+            "Show visual timeline compression"
+          ],
+          [
+            "Opens laptop, thinks about starting",
+            "Intention",
+            "Where do I even begin?",
+            "😐 Uncertain",
+            "Task feels large & unclear",
+            "Auto-generate first step"
+          ],
+          [
+            "Reads brief briefly, closes tab",
+            "Friction",
+            "I'll do it later when I feel ready.",
+            "😕 Mild avoidance",
+            "Cognitive overload",
+            "Simplify task into micro-actions"
+          ],
+          [
+            "Scrolls social media",
+            "Delay Loop",
+            "Just a short break.",
+            "🙂 Comfortable → 😬 Guilty",
+            "Easy dopamine replaces effort",
+            "Provide low-effort start mode"
+          ],
+          [
+            "Remembers assignment occasionally",
+            "Emotional Build-up",
+            "I should start soon…",
+            "😟 Concern rising",
+            "No structured re-entry point",
+            "Gentle re-engagement prompts"
+          ],
+          [
+            "Deadline gets close",
+            "Pressure Point",
+            "Now I HAVE to do it.",
+            "😰 Stress",
+            "Panic-driven productivity",
+            "Earlier urgency visualization"
+          ],
+          [
+            "Starts working intensely",
+            "Action",
+            "This wasn’t that hard actually.",
+            "😤 Focused",
+            "Starting barrier disappears late",
+            "Encourage early momentum"
+          ],
+          [
+            "Submits assignment",
+            "Reflection",
+            "Why didn’t I start earlier?",
+            "😓 Relief + regret",
+            "Pattern repeats next task",
+            "Reflection & learning feedback"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Critical observation: the highest friction point occurs between intention and starting."
+      },
+      {
+        "type": "heading",
+        "value": "Experience Breakdown — Cognitive States"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "Phase",
+            "Mental Mode"
+          ],
+          [
+            "Awareness",
+            "Low urgency"
+          ],
+          [
+            "Friction",
+            "High uncertainty"
+          ],
+          [
+            "Delay",
+            "Instant reward seeking"
+          ],
+          [
+            "Pressure",
+            "Anxiety-driven action"
+          ],
+          [
+            "Action",
+            "Flow state achieved"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Theoretical Framework — Temporal Motivation Theory"
+      },
+      {
+        "type": "paragraph",
+        "value": "Temporal Motivation Theory (TMT) explains procrastination as a decision-making process in which people choose the activity with the highest perceived motivational value at a given moment. Tasks with immediate rewards are often prioritised over tasks with delayed benefits, even if the long-term outcome is more important."
+      },
+      {
+        "type": "paragraph",
+        "value": "The theory describes motivation using the following formula:"
+      },
+      {
+        "type": "architecture",
+        "value": [
+          [
+            [
+              "<strong>Motivation = (Expectancy × Value) / (Sensitivity to Delay × Time Delay)</strong>"
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Each variable represents a psychological factor that influences whether a person starts or delays a task."
+      },
+      {
+        "type": "concept-grid",
+        "value": [
+          {
+            "title": "Expectancy",
+            "description": "Confidence in successfully completing the task"
+          },
+          {
+            "title": "Value",
+            "description": "How rewarding or enjoyable the task feels"
+          },
+          {
+            "title": "Sensitivity to Delay",
+            "description": "Preference for immediate rewards over delayed benefits"
+          },
+          {
+            "title": "Time Delay",
+            "description": "The time until the reward or outcome is received"
+          }
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Design Implications"
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "<strong>Expectancy:</strong> Increase confidence by breaking large tasks into smaller steps.",
+          "<strong>Value:</strong> Increase perceived reward through micro-progress and feedback.",
+          "<strong>Sensitivity to Delay:</strong> Reduce impulsive switching by providing quick start actions.",
+          "<strong>Time Delay:</strong> Reduce perceived delay through timeline compression and intermediate checkpoints."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Motivation increases when expectancy and value increase while delay decreases."
+      },
+      {
+        "type": "heading",
+        "value": "Product Concept - Hiro"
+      },
+      {
+        "type": "paragraph",
+        "value": "Hiro is a productivity assistant designed to help people overcome the starting barrier of work. Instead of focusing on scheduling or task management, Hiro focuses on the moment when users struggle most; the transition between intention and action."
+      },
+      {
+        "type": "paragraph",
+        "value": "The system helps users begin tasks by automatically breaking them into manageable steps, suggesting actions based on the user’s current energy level, and enabling optional co-working sessions that provide light social accountability."
+      },
+      {
+        "type": "subheading",
+        "value": "Why the name Hiro?"
+      },
+      {
+        "type": "paragraph",
+        "value": "The name Hiro comes from a conceptual blend of:"
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "<strong>Hermes</strong> the messenger and guide who helps movement and transition.",
+          "<strong>Kairos</strong> the greek diety representing the concept of the right time"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Together, the name reflects the purpose of the system: Helping users recognise and act in the right moment to begin work."
+      },
+      {
+        "type": "paragraph",
+        "value": "The name also phonetically resembles “Hero,” reinforcing the idea that users take small steps toward overcoming procrastination."
+      },
+      {
+        "type": "subheading",
+        "value": "Behavioral Model — The Procrastination Loop"
+      },
+      {
+        "type": "paragraph",
+        "value": "User behaviour often follows a predictable procrastination loop driven by uncertainty, low urgency, and immediate distractions."
+      },
+      {
+        "type": "snake-flow",
+        "value": [
+          "Task Assigned",
+          "Task feels large or unclear",
+          "Uncertainty about where to start",
+          "Avoidance",
+          "Switch to easy reward (social media)",
+          "Guilt or mild stress",
+          "Deadline pressure",
+          "Panic productivity",
+          "Task completed",
+          "Cycle repeats"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "This cycle shows that the real problem is not completing tasks but starting them."
+      },
+      {
+        "type": "subheading",
+        "value": "Hiro Intervention Model"
+      },
+      {
+        "type": "paragraph",
+        "value": "Hiro interrupts the procrastination loop before avoidance begins by reducing cognitive friction and helping users take the first action."
+      },
+      {
+        "type": "snake-flow",
+        "value": [
+          "User enters task",
+          "Smart task breakdown",
+          "Energy level selection",
+          "System suggests appropriate task",
+          "First-step generator",
+          "Start Mode activated",
+          "Momentum builds",
+          "Sustained progress"
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Information Architecture"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Home — Today’s suggested task",
+          "Tasks — Active tasks and task breakdown",
+          "Energy Mode — Current energy level selection",
+          "Focus Session — Active focus timer",
+          "Profile & Settings"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Visual Development"
+      },
+      {
+        "type": "paragraph",
+        "value": "The design system for Hiro is called <strong>The Digital Sanctuary</strong> — engineered to counteract the high-cortisol environment of task management. Most productivity tools feel like digital clipboards: rigid, cold, and demanding. Hiro aims to feel like a quiet, sun-drenched library where the architecture is organic and the atmosphere is breathable."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Hiro/layout.png",
+          "alt": "Hiro visual layout and design system overview"
+        }
+      },
+      {
+        "type": "subheading",
+        "value": "Colour: Tonal Architecture"
+      },
+      {
+        "type": "paragraph",
+        "value": "The palette is a dialogue between Sage (primary), Muted Blue (secondary), and Warm Cream (background). Colour is never used to alert — it is used to embrace."
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "<strong>Background</strong> — #fafaf5 (Warm Cream)",
+          "<strong>Primary</strong> — #4a6550 (Sage)",
+          "<strong>Secondary</strong> — Muted Blue",
+          "<strong>Surface tiers</strong> replace borders entirely",
+          "<strong>No 1px lines</strong> — boundaries are background shifts only"
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Typography"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "Role",
+            "Typeface",
+            "Use"
+          ],
+          [
+            "Display & Headlines",
+            "Plus Jakarta Sans",
+            "3.5rem — Welcome states, vast open space"
+          ],
+          [
+            "Body & Titles",
+            "Be Vietnam Pro",
+            "0.875rem — Warm, humanist, never crowded"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Large headlines use tight tracking (−0.02em) to feel premium. Body copy stays at body-md to ensure the interface never feels dense."
+      },
+      {
+        "type": "subheading",
+        "value": "Screen Flow"
+      },
+      {
+        "type": "snake-flow",
+        "value": [
+          "Home Screen",
+          "Add Task",
+          "Enter Task + Deadline",
+          "System generates task breakdown",
+          "User selects energy level",
+          "Task recommendation appears",
+          "User activates Start Mode",
+          "Focus session begins",
+          "Task progress updated"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Instead of overwhelming users with large tasks, Hiro always presents a single, achievable starting action."
+      },
+      {
+        "type": "subheading",
+        "value": "System 1 - Intelligent Task Breakdown"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Breaks large tasks into smaller actions",
+          "Schedules work before deadline",
+          "Creates buffer time"
+        ]
+      },
+      {
+        "type": "portrait-pair",
+        "value": [
+          {
+            "src": "images/Hiro/Task1.png",
+            "alt": "Task upload screen 1"
+          },
+          {
+            "src": "images/Hiro/Task2.png",
+            "alt": "Task upload screen 2"
+          },
+          {
+            "src": "images/Hiro/Task3.png",
+            "alt": "Task upload screen 3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Users begin by uploading a task to Hiro — simply entering the task name and deadline. Rather than presenting the full scope of the work, the system immediately breaks it down into smaller, manageable steps using the <strong>Gemini API</strong>."
+      },
+      {
+        "type": "paragraph",
+        "value": "Gemini analyses the task and generates a structured breakdown — splitting the work into milestones scheduled across the available time before the deadline, with built-in buffer time to reduce last-minute pressure."
+      },
+      {
+        "type": "portrait-pair",
+        "value": [
+          {
+            "src": "images/Hiro/Breakdown1.png",
+            "alt": "Task breakdown screen 1"
+          },
+          {
+            "src": "images/Hiro/Breakdown2.png",
+            "alt": "Task breakdown screen 2"
+          }
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "System 2 - Energy Based Task Assignment"
+      },
+      {
+        "type": "paragraph",
+        "value": "Once the task is broken down, Hiro doesn't hand the user a flat to-do list. Instead, it surfaces different suggested steps depending on the user's current <strong>energy level</strong> — so someone running low can still make meaningful progress without feeling overwhelmed."
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "Energy Level",
+            "Example Tasks"
+          ],
+          [
+            "Low",
+            "Read article, collect sources"
+          ],
+          [
+            "Medium",
+            "Write outline, summarise research"
+          ],
+          [
+            "High",
+            "Write main section, deep work"
+          ]
+        ]
+      },
+      {
+        "type": "portrait-pair",
+        "value": [
+          {
+            "src": "images/Hiro/Energy1.png",
+            "alt": "Energy level 1"
+          },
+          {
+            "src": "images/Hiro/Energy2.png",
+            "alt": "Energy level 2"
+          },
+          {
+            "src": "images/Hiro/Energy3.png",
+            "alt": "Energy level 3"
+          }
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Snooze mode - Intentional Pause"
+      },
+      {
+        "type": "paragraph",
+        "value": "Snooze Mode allows users to temporarily pause tasks, reminders, and notifications when they need time to rest or step away. Instead of forcing continuous productivity, Hiro recognises that recovery is essential for sustained focus."
+      },
+      {
+        "type": "paragraph",
+        "value": "Users can choose predefined durations or create custom schedules, ensuring that breaks are intentional rather than avoidant. All progress is preserved, and tasks are gently reintroduced once the snooze period ends."
+      },
+      {
+        "type": "paragraph",
+        "value": "This feature prevents burnout while maintaining a clear path back to action, supporting a healthier and more sustainable productivity cycle."
+      },
+      {
+        "type": "portrait-pair",
+        "value": [
+          {
+            "src": "images/Hiro/Snooze1.png",
+            "alt": "Snooze screen 1"
+          },
+          {
+            "src": "images/Hiro/Snooze2.png",
+            "alt": "Snooze screen 2"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Core Product Capabilities"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            "Problem",
+            "Feature"
+          ],
+          [
+            "Task feels too big",
+            "Smart Task Breakdown"
+          ],
+          [
+            "Energy fluctuates",
+            "Energy-Aware Suggestions"
+          ],
+          [
+            "Starting feels difficult",
+            "Start Mode"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Example Scenario"
+      },
+      {
+        "type": "paragraph",
+        "value": "A student enters the task 'Write essay — due in 7 days'. Hiro automatically creates milestones and suggests today's first action: Find three research sources (10 minutes)."
+      },
+      {
+        "type": "heading",
+        "value": "Break Reminder"
+      },
+      {
+        "type": "portrait-pair",
+        "value": [
+          {
+            "src": "images/Hiro/Break.png",
+            "alt": "Break Reminder screen 1"
+          },
+          {
+            "src": "images/Hiro/Break2.png",
+            "alt": "Break Reminder screen 2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Most productivity apps remind users to start a task very often. But users already feel pressure to start. Adding more start-reminders increases anxiety rather than motivation."
+      },
+      {
+        "type": "snake-flow",
+        "value": [
+          "User starts working",
+          "System protects focus",
+          "Suggests breaks at the right moment",
+          "User returns refreshed",
+          "Sustained momentum"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "This avoids notification fatigue. Instead of pushing users to begin, Hiro steps back once work has started — shielding focus and nudging breaks only when beneficial. The system shifts from being a starter to being a guardian of sustained effort."
+      },
+      {
+        "type": "heading",
+        "value": "Conclusion"
+      },
+      {
+        "type": "paragraph",
+        "value": "Hiro demonstrates that solving procrastination requires empathetic behavioural design rather than strict scheduling. By focusing on task initiation and reducing cognitive friction, the system helps users move from uncertainty to action and maintain momentum."
+      }
+    ]
+  },
+  "dub-transit": {
+    "title": "Dublin Public Transport App",
+    "category": "User Experience Design",
+    "year": "2025",
+    "hue": 150,
+    "description": "A real-time transit application that simplifies navigating Dublin’s transport network through intuitive route discovery, live bus tracking, service alerts, integrated weather insights, and an AI-powered journey assistant.",
+    "image": "images/dubtransit/dubscreen.png",
+    "tags": [
+      "UX Design",
+      "Visual Communication",
+      "Mobile App Design",
+      "InteractionDesign",
+      "AI-Driven Interfaces"
+    ],
+    "content": [
+      {
+        "type": "image",
+        "value": {
+          "src": "images/dubtransit/dubtitlescreen.jpg",
+          "alt": "Title card showing \"transport network\" over a visualization of interconnected bubbles."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "DubTransit is a mobile application built to unify Dublin’s fragmented public transport information into one clear, minimal, and elegant experience."
+      },
+      {
+        "type": "paragraph",
+        "value": "The app combines:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                    <svg viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line></svg>\n                 </span>\n                 <span><strong>Route Search & Stop Lookup</strong><br> Intuitive navigation across the network.</span>",
+          "<span class=\"icon-wrapper\">\n                    <svg viewBox=\"0 0 24 24\"><polygon points=\"1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6\"></polygon><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"18\"></line><line x1=\"16\" y1=\"6\" x2=\"16\" y2=\"22\"></line></svg>\n                 </span>\n                 <span><strong>Live Network Map</strong><br> Real-time visuals with simulated tracking.</span>",
+          "<span class=\"icon-wrapper\">\n                    <svg viewBox=\"0 0 24 24\"><path d=\"M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z\"></path><line x1=\"12\" y1=\"9\" x2=\"12\" y2=\"13\"></line><line x1=\"12\" y1=\"17\" x2=\"12.01\" y2=\"17\"></line></svg>\n                 </span>\n                 <span><strong>Service Alerts</strong><br> Live updates for events, delays, and accidents.</span>",
+          "<span class=\"icon-wrapper\">\n                   <svg viewBox=\"0 0 24 24\"><path d=\"M12 2l3.09 6.26L22 12l-6.91 3.74L12 22l-3.09-6.26L2 12l6.91-3.74z\"></path></svg>\n                 </span>\n                 <span><strong>AI Journey Planning</strong><br> Smart assistance powered by Gemini.</span>",
+          "<span class=\"icon-wrapper\">\n                    <svg viewBox=\"0 0 24 24\"><path d=\"M12 2v2\"></path><path d=\"m4.93 4.93 1.41 1.41\"></path><path d=\"M20 12h2\"></path><path d=\"m19.07 4.93-1.41 1.41\"></path><path d=\"M15.947 12.65a4 4 0 0 0-5.925-4.128\"></path><path d=\"M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z\"></path></svg>\n                 </span>\n                 <span><strong>Weather-Aware Guidance</strong><br> Travel advice based on live forecast.</span>"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Problem & Opportunity"
+      },
+      {
+        "type": "subheading",
+        "value": "Dublin’s transport experience is often fragmented:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "-Outdated interfaces and inconsistent behaviour",
+          "-Live location accuracy issues",
+          "-Limited route discovery",
+          "-No contextual travel info (weather, events, delays)"
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "User Research Findings"
+      },
+      {
+        "type": "list",
+        "value": [
+          "-Commuters want quick and simple route lookup (bus numbers, origins/destinations).",
+          "-People check real-time bus status frequently.",
+          "-Dublin residents rely on Google Maps, but hate its delay unpredictability.",
+          "-Users want alerts before problems happen.",
+          "-Weather affects travel significantly"
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/dubtransit/dublinstpatrick.jpg",
+          "alt": "Traffic control during St Patrick's day"
+        }
+      },
+      {
+        "type": "subheading",
+        "value": "Opportunity"
+      },
+      {
+        "type": "paragraph",
+        "value": "Create a single, friendly, modern app that integrates routing, AI guidance, alerts, weather, and live tracking together."
+      },
+      {
+        "type": "heading",
+        "value": "Design Process & UX Approach"
+      },
+      {
+        "type": "subheading",
+        "value": "User Requirements"
+      },
+      {
+        "type": "paragraph",
+        "value": "Through informal interviews with students, workers, and migrants in Dublin, I identified key priorities:"
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "“Just show me where the bus is.”",
+          "“I don’t want to figure out inbound/outbound.”",
+          "“I just want a clean app that works.”",
+          "“Weather screws up my commute, tell me beforehand.”"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "These insights shaped the core flows."
+      },
+      {
+        "type": "subheading",
+        "value": "Information Architecture & Key Screens"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/dubtransit/dubmockup.jpg",
+          "alt": "Mockup screens of the app"
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "1. Routes Directory"
+      },
+      {
+        "type": "paragraph",
+        "value": "A minimal search-first interface that lets users quickly find routes by number or name."
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Clear typography",
+          "Line-colour coding",
+          "Simple forward/backward direction labels (“A → B”, “B → A”)"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "2. Live Map & Tracking"
+      },
+      {
+        "type": "paragraph",
+        "value": "A full-screen map visualizing:"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Bus stop markers",
+          "Route polylines",
+          "Live (or simulated) bus positions",
+          "Smooth marker animation for realism"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "3. Service Alerts"
+      },
+      {
+        "type": "paragraph",
+        "value": "Supports categories:"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "GENERAL",
+          "EVENT",
+          "ACCIDENT",
+          "WEATHER"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "4. AI Journey Planner"
+      },
+      {
+        "type": "paragraph",
+        "value": "An interface where users type the current location and destination location. The AI responds with:"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Multi-modal journey",
+          "Clear step-by-step navigation",
+          "Estimated travel time",
+          "Weather at departure and arrival",
+          "Notes about delays or events"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "5. Empty States & Loading Screens"
+      },
+      {
+        "type": "paragraph",
+        "value": "Designed intentionally to reduce anxiety and create trust:"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "Encouraging microcopy",
+          "Soft colour palette",
+          "Clean visuals"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "System Architecture"
+      },
+      {
+        "type": "architecture",
+        "value": [
+          {
+            "text": "<strong>Mobile App</strong><br>DubTransit (React Native)",
+            "highlight": true
+          },
+          [
+            [
+              "<strong>User Location</strong><br>GPS (With Consent)",
+              "<strong>Crowd Data Formatter</strong><br>Anonymizer",
+              "<strong>Crowdsourced DB</strong><br>Bus Position Database",
+              "<strong>Data Smoothing</strong><br>Interpolation & Kalman Filter"
+            ],
+            [
+              "<strong>User Query</strong><br>'Bus 15', 'UCD'",
+              "<strong>Firestore Routes</strong><br>GTFS Static Data",
+              "<strong>GTFS-Realtime Feed</strong><br>Official Vehicle Positions",
+              "<strong>Data Fusion Engine</strong><br>Merging Crowd + Official Data"
+            ],
+            [
+              "<strong>Origin / Destination</strong><br>Metadata extraction",
+              "<strong>Gemini AI Processor</strong><br>Journey Reasoning",
+              "<strong>Weather API</strong><br>Open-Meteo (Current & Forecast)"
+            ]
+          ],
+          [
+            [
+              "<strong>Live Bus Position API</strong><br>Unified Source"
+            ],
+            [
+              "<strong>Map Renderer</strong><br>Polyline + Smooth Animation"
+            ]
+          ],
+          {
+            "text": "<strong>AI Journey Planner Output</strong><br>ETA + Weather + Steps",
+            "highlight": true
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Visual Design Language"
+      },
+      {
+        "type": "paragraph",
+        "value": "I chose a dark, modern UI with a yellow similar to the Dublin bus color (#E3CD00) as the primary accent."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/dubtransit/dubcolor.jpg",
+          "alt": "Colorscheme for the app"
+        }
+      },
+      {
+        "type": "subheading",
+        "value": "Reasons:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "High visibility",
+          "Works great on OLED screens",
+          "Creates strong brand identity"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Prototyping & Iteration"
+      },
+      {
+        "type": "paragraph",
+        "value": "I iterated through several cycles:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Redesigned direction labels from Inbound/Outbound → A → B / B → A</span>",
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Rebuilt the map for readability and smooth marker animation</span>",
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Optimised the AI planner’s information density (steps, ETA, weather)</span>",
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Refined empty states and loading behaviours to reduce user stress</span>",
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Enhanced the weather integration after feedback (“show arrival weather too”)</span>"
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "AI-Assisted Prototyping Process"
+      },
+      {
+        "type": "paragraph",
+        "value": "This prototype heavily used AI tools during iteration:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "Google AI Studio — initial drafts of features & logic",
+          "DeepSeek — refining data structures, simulation logic, and route handling",
+          "ChatGPT — final refinements, debugging, API integration, UX adjustments"
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/dubtransit/dubaiuses.jpg",
+          "alt": "Usage of Google AI Studio for the development"
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "AI helped speed up prototyping, letting me focus on design and experience rather than spending too much time on development."
+      },
+      {
+        "type": "heading",
+        "value": "Live Prototype"
+      },
+      {
+        "type": "paragraph",
+        "value": "To make Dub.Transit accessible directly from the browser, I created a web-based preview of the app. This allows the viewers to interact with the interface without installing the Android app."
+      },
+      {
+        "type": "mobile-demo",
+        "value": "https://dublintransporttracker.netlify.app"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "You can also <a href=\"https://dublintransporttracker.netlify.app\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:text-[#DDA853]\">open the app in a new tab</a> to explore it fully."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "The current version preserves the overall UX, typography, and component layout so viewers can understand the design system."
+      },
+      {
+        "type": "heading",
+        "value": "Advanced Features"
+      },
+      {
+        "type": "subheading",
+        "value": "<span class=\"icon-wrapper\">\n                    <svg viewBox=\"0 0 24 24\"><path d=\"M12 2v2\"></path><path d=\"m4.93 4.93 1.41 1.41\"></path><path d=\"M20 12h2\"></path><path d=\"m19.07 4.93-1.41 1.41\"></path><path d=\"M15.947 12.65a4 4 0 0 0-5.925-4.128\"></path><path d=\"M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z\"></path></svg>\n                 </span>\n                 <span>Weather Integration</span>"
+      },
+      {
+        "type": "paragraph",
+        "value": "Using Open-Meteo, the app fetches: Current temperature, Feels-like, Rain probability, Wind, Weather at arrival time, for journey planning This allows the AI to adjust trip suggestions (e.g., “Expect rain when you arrive at St. Stephen’s Green”)."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/dubtransit/dubweather.jpg",
+          "alt": "Screen showing weather details at the current location and destination location"
+        }
+      },
+      {
+        "type": "subheading",
+        "value": "<span class=\"icon-wrapper\">\n                   <svg viewBox=\"0 0 24 24\"><path d=\"M12 2l3.09 6.26L22 12l-6.91 3.74L12 22l-3.09-6.26L2 12l6.91-3.74z\"></path></svg>\n                 </span>\n                 <span>Gemini AI Journey Assistant</span>"
+      },
+      {
+        "type": "paragraph",
+        "value": "A central highlight of the project."
+      },
+      {
+        "type": "paragraph",
+        "value": "The assistant: Reads user’s start + destination, Checks possible transport modes, Considers weather conditions, Provides a human-readable plan, Gives suggestions (“Leave 10 minutes early, traffic is heavy near Drumcondra”)."
+      },
+      {
+        "type": "paragraph",
+        "value": "Gemini acts as the smart layer on top of the transit data."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/dubtransit/dubaiapp.jpg",
+          "alt": "Screen showing navigation details and steps"
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Crowdsourced Real-Time Tracking (Future Feature)"
+      },
+      {
+        "type": "paragraph",
+        "value": "A key innovation planned for DubTransit is a community-powered real-time bus tracking system, designed to overcome the limitations of existing transport data sources in Dublin."
+      },
+      {
+        "type": "subheading",
+        "value": "Why Crowdsourcing?"
+      },
+      {
+        "type": "paragraph",
+        "value": "GTFS-Realtime (GTFS-R) feeds are:"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "often inconsistent or delayed",
+          "missing direction accuracy",
+          "expensive or restricted for developers",
+          "unreliable for smaller-scale apps",
+          "out of scope for a prototype project"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Although GTFS-Realtime is a standard, its accuracy in Dublin varies, and buses frequently jump, freeze, or move in the wrong direction, which is exactly what I experienced while testing."
+      },
+      {
+        "type": "paragraph",
+        "value": "Crowdsourcing solves this by decentralizing the live tracking system, similar to how Waze collects real-world traffic data from its drivers."
+      },
+      {
+        "type": "subheading",
+        "value": "How the Crowdsourced System Works?"
+      },
+      {
+        "type": "paragraph",
+        "value": "With user consent, the app would:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Detect when a passenger is inside a bus (based on movement patterns + manual confirmation).</span>",
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Upload minimal, anonymous data such as:</span>"
+        ]
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "GPS location",
+          "Route number",
+          "Timestamp"
+        ]
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Combine data from multiple passengers on the same route.</span>",
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Smooth and interpolate positions on the backend to produce a highly accurate, real-time view.</span>"
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "Privacy-Preserving Design"
+      },
+      {
+        "type": "lined-list",
+        "value": [
+          "No personal identity stored",
+          "No background tracking unless explicitly enabled",
+          "Data expires and is deleted automatically after a few minutes",
+          "Users opt-in on a per-trip basis"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Limitations & Technical Challenges"
+      },
+      {
+        "type": "paragraph",
+        "value": "Crowdsourcing isn’t magic, it introduces a new set of challenges:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Requires a critical mass of active users</span>"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "--(early versions may have sparse tracking)"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Data quality varies</span>"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "--(e.g., inaccurate GPS, people on the wrong bus)"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Requires server-side smoothing</span>"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "--(Kalman filtering, interpolation, direction correction)"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>Detecting whether a user is genuinely on a bus</span>"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "--(signal patterns, speed, or manual confirmation)"
+      },
+      {
+        "type": "list",
+        "value": [
+          "<span class=\"icon-wrapper\">\n                                        <svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle></svg>\n                                        </span>\n                 <span>User outreach is essential</span>"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "--The quality of tracking depends directly on the number of participants."
+      },
+      {
+        "type": "paragraph",
+        "value": "I present these limitations openly as part of the project’s honest, real-world constraints."
+      },
+      {
+        "type": "heading",
+        "value": "Prototype Status & Future Improvements"
+      },
+      {
+        "type": "subheading",
+        "value": "The current version of DubTransit is a functional prototype, with:"
+      },
+      {
+        "type": "box-list",
+        "value": [
+          "fully working AI-powered journey planner (Gemini API)",
+          "Weather-aware routing using Open-Meteo",
+          "Working route search, stop lookup, and route shapes",
+          "Simulated live buses moving along real route geometry",
+          "Cross-platform mobile UI built in React Native"
+        ]
+      },
+      {
+        "type": "subheading",
+        "value": "What’s next?"
+      },
+      {
+        "type": "paragraph",
+        "value": "Here’s the roadmap for turning this into a full production app:"
+      },
+      {
+        "type": "roadmap",
+        "value": [
+          {
+            "title": "Short-Term Goals",
+            "items": [
+              "<strong>Crowdsourced GPS</strong><br>Backend Setup (User Opt-in)",
+              "<strong>Push Notifications</strong><br>Delays & ETA Alerts",
+              "<strong>Real GTFS-R</strong><br>Integration with Fallback",
+              "<strong>Offline Caching</strong><br>For poor network areas",
+              "<strong>Improved Onboarding</strong><br>User education flows",
+              "<strong>Smarter AI</strong><br>Journey Tuning & Context"
+            ]
+          },
+          {
+            "title": "Long-Term Goals",
+            "items": [
+              "<strong>Real-Time Multimodal</strong><br>Bus + Luas + DART Unified",
+              "<strong>Predictive Congestion</strong><br>Historical Traffic Models",
+              "<strong>ML Delay Prediction</strong><br>Using Crowdsourced Data",
+              "<strong>WearOS / Apple Watch</strong><br>Companion Experience",
+              "<strong>Agency Partnerships</strong><br>Official Data Access",
+              "<strong>Scale Infrastructure</strong><br>For City-Wide Adoption"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Final Thoughts"
+      },
+      {
+        "type": "paragraph",
+        "value": "Dub.Transit represents more than a transit app, it’s a vision for a more efficient, accessible, and human-centered mobility experience in Dublin. This project brought together UX design, visual storytelling, mobile engineering, geospatial logic, AI integration, and systems thinking into one unified product."
+      },
+      {
+        "type": "paragraph",
+        "value": "The process taught me that designing for transit is ultimately designing for people: their routines, their anxieties, their unpredictability, and their need for clarity in moments of stress. By blending thoughtful design with emerging technologies like Gemini AI and future crowdsourced real-time data, Dub.Transit aims to make everyday commuting smoother, smarter, and more equitable."
+      },
+      {
+        "type": "quote",
+        "value": "“A developed country is not a place where the poor have cars. It's where the rich use public transportation.”",
+        "author": "Gustavo Petro (Former Mayor of Bogotá, Colombia)"
+      }
+    ]
+  },
+  "city-beneaththesurface": {
+    "title": "City, Beneath the Surface",
+    "category": "Data Visualization",
+    "year": "2025",
+    "hue": 210,
+    "description": "An interactive data visualization and public installation that reveals the invisible labor sustaining cities by transforming public sentiment into dynamic visual form.",
+    "image": "images/City/City_Main.jpg",
+    "tags": [
+      "Information Design",
+      "UX Design",
+      "Data Visualization",
+      "Public Installation",
+      "Interactive Design"
+    ],
+    "content": [
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_Title.jpg",
+          "alt": "Title card showing \"City, Beneath the Surface\" over a visualization of interconnected bubbles."
+        }
+      },
+      {
+        "type": "quote",
+        "value": "“No work is insignificant. All labor that uplifts humanity has dignity and importance and should be undertaken with painstaking excellence.”",
+        "author": "Martin Luther King Jr."
+      },
+      {
+        "type": "heading",
+        "value": "Project Overview"
+      },
+      {
+        "type": "paragraph",
+        "value": "City, Beneath the Surface is a data-driven interactive installation that reframes how we perceive care-based labor in cities. It visualizes the hidden hierarchies of essential workers — bus drivers, waste collectors, maintenance crews, and others — as dynamic bubble networks, transforming public sentiment and contextual data into living, responsive visuals.  \n\nBy situating the installation in everyday public spaces (bus stops, train stations), the project brings recognition to often unseen labor, sparking reflection on the value of those who sustain urban life."
+      },
+      {
+        "type": "heading",
+        "value": "Context & Motivation"
+      },
+      {
+        "type": "list",
+        "value": [
+          "Growing up in India, I observed cultural stigma toward manual and public-facing labor, often framed as “low-status” work.",
+          "In contrast, while studying in Dublin, I noticed greater respect and infrastructural support for these workers, yet still a lack of emotional recognition.",
+          "This project became both a personal reconciliation and a design intervention, aiming to shift public narratives by making invisible labor visible"
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_Personal.jpg",
+          "alt": "Photograph of a street in India with visible waste, illustrating the project's personal motivation."
+        }
+      },
+      {
+        "type": "quote",
+        "value": "“YOU WILL END UP PICKING TRASH, IF YOU DON'T STUDY WELL”",
+        "author": "A Random Teacher from My School"
+      },
+      {
+        "type": "heading",
+        "value": "Problem Statement"
+      },
+      {
+        "type": "paragraph",
+        "value": "Despite being essential, care-based workers remain socially undervalued. Public frustration with systemic failures is often misdirected toward visible figures like drivers or cleaners, reinforcing stigma and invisibility"
+      },
+      {
+        "type": "heading",
+        "value": "Research Question"
+      },
+      {
+        "type": "paragraph",
+        "value": "How might contextual data visualization be used to reframe public narratives surrounding care-based labor?"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_Ran.jpg",
+          "alt": "A person interacting with the 'City, Beneath the Surface' installation on a large public screen."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Objectives"
+      },
+      {
+        "type": "list",
+        "value": [
+          "Expose the hidden tiers of labor that sustain the city.",
+          "Collect and visualize sentiment data around urban workers.",
+          "Build a responsive installation that shifts based on public interaction.",
+          "Challenge stigma by connecting emotions, data, and design."
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Design Concept"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_Diag.jpg",
+          "alt": "Diagram illustrating the project's design concept: data input leads to interactive visualization and an AR layer."
+        }
+      },
+      {
+        "type": "list",
+        "value": [
+          "Dynamic Bubbles: Each sector of urban labor (waste, water, transport, construction, electrical, sanitation, emergency, etc.) is represented as a parent bubble. Roles and sub-roles emerge around it, creating a living hierarchy of workers.",
+          "Network Visualization: The installation shows how different sectors connect and interdepend to keep the city functioning, emphasizing systemic collaboration rather than isolated roles.",
+          "Public Interaction: Users can tap or click bubbles to reveal details about roles, responsibilities, and worker counts within each sector.",
+          "Augmented Reality Layer: In the mobile app, the AR view links the virtual system to real-world objects. For example, pointing at a bus, trash can, or streetlight reveals the associated bubble, its sector, and data about the number of workers behind it.",
+          "Atmosphere: Idle animations and floating motion give the system a “living” quality, symbolizing the ongoing, often unnoticed work beneath the city."
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Theoretical Frameworks"
+      },
+      {
+        "type": "list",
+        "value": [
+          "Everyday Life and Cultural Theory (Ben Highmore) → Centers ordinary, undervalued labor as culturally significant."
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_T1.jpg",
+          "alt": "Slide explaining the theoretical framework of 'Everyday Life and Cultural Theory by Ben Highmore'."
+        }
+      },
+      {
+        "type": "list",
+        "value": [
+          "Maintenance and Care (Shannon Mattern) → Frames maintenance as essential, emotional, and infrastructural labor."
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_T2.jpg",
+          "alt": "Slide explaining the theoretical framework of 'Maintenance and Care by Shannon Mattern'."
+        }
+      },
+      {
+        "type": "list",
+        "value": [
+          "Convergence Culture (Henry Jenkins) → Informs how public narratives and digital participation shape collective meaning."
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_T3.jpg",
+          "alt": "Slide explaining the theoretical framework of 'Convergence Culture by Henry Jenkins'."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "<em>These frameworks guided the design in making invisible work visible, reframing workers not just as functional roles but as vital cultural and social contributors.</em>"
+      },
+      {
+        "type": "heading",
+        "value": "Tools & Development"
+      },
+      {
+        "type": "list",
+        "value": [
+          "Early Prototyping: Initial concepts tested in p5.js to explore visual states and interaction ideas. Some other concepts were also explored, using 3D models and map data of the city."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Prototype using map data and 3D models in blender"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_Prot1.jpg",
+          "alt": "Early 3D prototype showing a map of a city with data points rendered in Blender."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Second Prototype using p5.js"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_Prot2.jpg",
+          "alt": "Screenshot of a p5.js prototype with colorful circular data points on a dark background."
+        }
+      },
+      {
+        "type": "list",
+        "value": [
+          "Final Implementation: Live Interactive Installation"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "value": "Built as a web-based interactive installation with an accompanying mobile AR app."
+      },
+      {
+        "type": "list",
+        "value": [
+          "Development Workflow: Iteratively coded using ChatGPT, Claude.ai, and Google AI Studio, with final refinements and debugging done manually."
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_AI.jpg",
+          "alt": "Screenshot of code being generated using an AI tool, illustrating the project's development workflow."
+        }
+      },
+      {
+        "type": "list",
+        "value": [
+          "Delivery Platforms: Public Installation → large screen or projection in transit hubs. Mobile Application → includes Hierarchy View and AR View linking bubbles to real-world city objects."
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "User Journey - Storyboard"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_User.jpg",
+          "alt": "A three-panel storyboard showing a user's journey from seeing the installation to interacting with it."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Final Output"
+      },
+      {
+        "type": "list",
+        "value": [
+          "Mobile AR App UI Prototypes: Extends the installation into everyday life, letting users scan familiar city objects to uncover the workers and systems behind them."
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_App.jpg",
+          "alt": "UI mockups of the mobile AR app, showing the hierarchy view and the camera-based AR view."
+        }
+      },
+      {
+        "type": "list",
+        "value": [
+          "Interactive Visualization: A responsive bubble system representing the city’s essential workers."
+        ]
+      },
+      {
+        "type": "iframe",
+        "value": {
+          "src": "https://city-beneath-surface.netlify.app/",
+          "title": "City, Beneath the Surface - Live Installation"
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "You can also <a href=\"https://city-beneath-surface.netlify.app/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:text-[#DDA853]\">open the installation in a new tab</a> to explore it fully."
+      },
+      {
+        "type": "list",
+        "value": [
+          "Exhibition Setup: Designed for public spaces where passersby can engage with the installation and explore hidden labor systems.",
+          "Message: Cities thrive because of invisible labor — this project transforms that invisibility into a visible, interactive network."
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "Reflection"
+      },
+      {
+        "type": "paragraph",
+        "value": "This project taught me how design, data, and empathy can merge into impactful public interventions. It demonstrated:"
+      },
+      {
+        "type": "list",
+        "value": [
+          "The power of interactive visualization in making complex labor systems approachable and humanized.",
+          "How accurate datasets (not just sentiment) can ground storytelling in realism while still keeping the experience poetic and engaging.",
+          "The potential and limits of AI-assisted coding as a design partner, and the importance of taking creative control in the final refinements.",
+          "The need to balance clarity and exploration, ensuring accessibility for the general public while keeping the experience compelling for institutions and stakeholders."
+        ]
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/City/City_Last.jpg",
+          "alt": "Final exhibition shot of the data visualization glowing on a screen in a dark room."
+        }
+      }
+    ]
+  },
+  "theyyam-threads": {
+    "title": "Theyyam Threads",
+    "category": "Visual Design",
+    "year": "2023",
+    "hue": 12,
+    "description": "A project encapsulating Kerala's Theyyam art form into modern wearable art, blending tradition with contemporary design.",
+    "image": "images/Theyyam/Theyyam_1.jpg",
+    "tags": [
+      "T-Shirt",
+      "Visual Communication",
+      "Fashion"
+    ],
+    "content": [
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_3.jpg",
+          "alt": "Closeup of the 'Theyyam Threads' t-shirt design, a powerful black and white graphic of a Theyyam face."
+        }
+      },
+      {
+        "type": "quote",
+        "value": "“He was made man that we might be made God”",
+        "author": "St. Athanasius of Alexandria"
+      },
+      {
+        "type": "heading",
+        "value": "Project Overview"
+      },
+      {
+        "type": "paragraph",
+        "value": "'Theyyam Threads' is a unique project encapsulating the essence of Kerala's vibrant Theyyam art form into modern wearable art. Inspired by the rich cultural heritage of Kerala, this project seamlessly blends tradition with contemporary design, resulting in visually stunning and culturally significant t-shirt designs."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_2.jpg",
+          "alt": "A person wearing the Theyyam t-shirt, looking away from the camera in a stylish pose."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Colors"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_col.jpg",
+          "alt": "Color palette for the project, showing primary red, yellow, and black inspired by Theyyam costumes."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Inspirations"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_insp.jpg",
+          "alt": "A grid of inspiration photos showing the vibrant colors and intense expressions of Theyyam performers."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Development"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_dev1.jpg",
+          "alt": "Initial pencil sketches exploring different compositions for the Theyyam face graphic."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Sketch was made as a joint effort of me and my friend Adithya. We tried to explore several forms based on our references and came up with the idea of just the facial expression of Theyyam. Some sparks were also added later in front to show the intense artform."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_dev2.jpg",
+          "alt": "Digital illustration of the Theyyam graphic in progress, showing monochrome vector lines."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Later we decided to go with a  monochrome approach, showing just the black and white elements."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_dev3.jpg",
+          "alt": "Refined digital version of the Theyyam graphic with added details and textures."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Some extra details were added to make the design more likeable by the youth."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_8.jpg",
+          "alt": "The final Theyyam graphic with added spark and grunge details for a modern feel."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Learnings"
+      },
+      {
+        "type": "paragraph",
+        "value": "Beyond mere aesthetics, this project delves deeper into the cultural significance and historical roots of Theyyam, aiming to foster a deeper appreciation and understanding of Kerala's cultural heritage. Through thoughtful artwork and design choices, 'Theyyam Threads' serves as a platform for cultural exchange and celebration, bridging the gap between tradition and modernity."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Theyyam/Theyyam_tshirt.jpg",
+          "alt": "Mockup of the final design on a black t-shirt."
+        }
+      }
+    ]
+  },
+  "artbox": {
+    "title": "ArtBox",
+    "category": "Product Design",
+    "year": "2022",
+    "hue": 280,
+    "description": "A mediatory system for artisans to sell their knowledge and craft, helping customers get hands-on experience.",
+    "image": null,
+    "tags": [
+      "Brand",
+      "Packaging",
+      "UX Design",
+      "Service Design"
+    ],
+    "content": [
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_Title.jpg",
+          "alt": "Title image for the ArtBox project, displaying the logo and tagline on a branded box."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Area of Intervention"
+      },
+      {
+        "type": "paragraph",
+        "value": "After some deliberation, we narrowed it down to three sectors namely education, health and small businesses. We tried to identify various problems these sectors face to help us weigh in between these."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_1.jpg",
+          "alt": "Mind map diagram exploring problem areas in education, health, and small business sectors."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Design Model"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_Model.jpg",
+          "alt": "Diagram showing the ArtBox service design model connecting artisans, the platform, and customers."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Visual Identity"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_Visual1.jpg",
+          "alt": "Visual identity board for ArtBox, showing the logo, color palette, and typography."
+        }
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_Visual2.jpg",
+          "alt": "Second visual identity board for ArtBox, showing iconography and brand patterns."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "User Flow"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_Userflow.jpg",
+          "alt": "A user flow diagram mapping the customer's journey from discovery to receiving their ArtBox kit."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Prototypes"
+      },
+      {
+        "type": "paragraph",
+        "value": "Website"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_Website.jpg",
+          "alt": "Screenshots of the ArtBox website user interface, showing the homepage and product pages."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Product"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Artbox/Artbox_Product.jpg",
+          "alt": "Photographs of the physical ArtBox product: a beautifully packaged craft kit with tools and materials."
+        }
+      }
+    ]
+  },
+  "aujus": {
+    "title": "Aujus",
+    "category": "System Design",
+    "year": "2022",
+    "hue": 90,
+    "description": "A 5-week semester project to understand and design for complex, interconnected socio-economic problems.",
+    "image": null,
+    "tags": [
+      "System Design",
+      "Service Design",
+      "Wayfinding",
+      "UX/UI"
+    ],
+    "content": [
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Title.jpg",
+          "alt": "Title card for the Aujus project with its logo and a brief description."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Initial Steps"
+      },
+      {
+        "type": "heading",
+        "value": "Understanding Medical Systems"
+      },
+      {
+        "type": "paragraph",
+        "value": "We started by looking at problem areas within a medical system, starting with an initial study by looking into the normal procedures happening inside a hospital."
+      },
+      {
+        "type": "paragraph",
+        "value": "We looked at various departments and their functions inside hospitals."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_1.jpg",
+          "alt": "Diagram mapping the different departments and functions within a hospital system."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "Identifying system components"
+      },
+      {
+        "type": "paragraph",
+        "value": "We started our process by looking studying how, where and why datas are collected inside hospitals and identified the  system components which helps us to evaluate the system."
+      },
+      {
+        "type": "paragraph",
+        "value": "We identified the components through an entity relationship mapping of the hospital."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_entity.jpg",
+          "alt": "An entity-relationship diagram illustrating the data connections within a hospital."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Entity-relationship mapping"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_comp.jpg",
+          "alt": "A list of identified system components, such as patient data, diagnosis, and medical records."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Identified system components"
+      },
+      {
+        "type": "heading",
+        "value": "Connection circles"
+      },
+      {
+        "type": "paragraph",
+        "value": "In the process of identifying system components we started grouping these identified system components which are patient information, patient diagnosis, and medical research."
+      },
+      {
+        "type": "paragraph",
+        "value": "Negative and positive connections are shown with red and green coloured arrows, respectively, with the direction of the connections."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Pat.jpg",
+          "alt": "Connection circle diagram showing the relationships within patient information data."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Patient info"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Med.jpg",
+          "alt": "Connection circle diagram showing the relationships within medical research data."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Medical Research"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Diag.jpg",
+          "alt": "Connection circle diagram showing the relationships within patient diagnosis data."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Patient diagnosis"
+      },
+      {
+        "type": "heading",
+        "value": "System Implementation"
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Sys1.jpg",
+          "alt": "System flow diagram identifying points of data entry."
+        }
+      },
+      {
+        "type": "paragraph",
+        "value": "Identified areas of data entry and data accessing in the system."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Sys2.jpg",
+          "alt": "System flow diagram identifying points of data access for patients and medical staff."
+        }
+      },
+      {
+        "type": "heading",
+        "value": "AUJUS"
+      },
+      {
+        "type": "paragraph",
+        "value": "Aujus is a system with centralised medical database where data can be entered and accessed by the patients from anywhere at any point."
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Card.jpg",
+          "alt": "Closeup of the Aujus medical information card design."
+        }
+      },
+      {
+        "type": "image",
+        "value": {
+          "src": "images/Aujus/Aujus_Screen.jpg",
+          "alt": "Mockup of the Aujus user interface on a screen, displaying patient medical data."
+        }
+      }
+    ]
+  }
+}

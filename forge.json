@@ -1,0 +1,33 @@
+{
+  "_readme": "Cars = mixed gallery, all cells UNIFORM PORTRAIT so rows align cleanly. IMAGES and VIDEOS are SEPARATE cells (a video is NOT a poster for an image). 'focus' positions the media inside the portrait box (e.g. 'center', 'center top', '50% 30%') so you frame each car. Videos loop muted at rest and open in the Forge lightbox on click.",
+
+  "cars": [
+    { "type": "video", "video": "images/3d/anim/videos/swift_car_transition.mp4", "focus": "center",     "alt": "Swift — transition" },
+    { "type": "image", "image": "images/3d/anim/images/swift.jpg",                  "focus": "center",     "alt": "Swift — white render" },
+    { "type": "image", "image": "images/3d/anim/images/hondacivicmod.jpg",          "focus": "center",     "alt": "Civic — modified, red" },
+    { "type": "video", "video": "images/3d/anim/videos/gtr_skyline.mp4",            "focus": "center",     "alt": "GTR Skyline — animation" },
+
+    { "type": "image", "image": "images/3d/anim/images/hondacivic.jpg",             "focus": "center",     "alt": "Civic — orange render" },
+    { "type": "video", "video": "images/3d/anim/videos/dodge.mp4",                  "focus": "center",     "alt": "Dodge — neon scene" },
+    { "type": "image", "image": "images/3d/anim/images/swift2.jpg",                 "focus": "center",     "alt": "Green race build" },
+    { "type": "video", "video": "images/3d/anim/videos/swift_burnout.mp4",          "focus": "center",     "alt": "Swift — burnout" },
+
+    { "type": "video", "video": "images/3d/anim/videos/swift_car_animated.mp4",     "focus": "center",     "alt": "Swift — animation" },
+    { "type": "image", "image": "images/3d/anim/images/swift3.jpg",                 "focus": "center",     "alt": "Swift — detail" }
+  ],
+
+  "_cars_note": "All cells are portrait now. 'focus' frames the car inside its tall box: 'center' (default), 'center top' to favour the top, 'center 65%' to favour the lower part, etc. Tune per car so none are awkwardly cropped. Reorder freely; file order = page order.",
+
+  "alphabet": [
+    { "char": "A", "image": "images/3d/type/stills/a.jpg", "video": "images/3d/type/videos/a.mp4" },
+    { "char": "B", "image": "images/3d/type/stills/b.jpg", "video": "images/3d/type/videos/b.mp4" },
+    { "char": "C", "image": "images/3d/type/stills/c.png", "video": "images/3d/type/videos/c.mp4" },
+    { "char": "D", "image": "images/3d/type/stills/d.jpg", "video": "images/3d/type/videos/d.mp4" },
+    { "char": "E", "image": "images/3d/type/stills/e.jpg", "video": "images/3d/type/videos/e.mp4" },
+    { "char": "F", "image": "images/3d/type/stills/f.jpg", "video": "images/3d/type/videos/f.mp4" },
+    { "char": "G", "image": "images/3d/type/stills/g.jpg", "video": "images/3d/type/videos/g.mp4" },
+    { "char": "H", "image": "images/3d/type/stills/h.png", "video": "images/3d/type/videos/h.mp4" }
+  ],
+
+  "_alphabet_note": "Add remaining letters below H following the same pattern. h uses .png; others .jpg."
+}
